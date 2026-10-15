@@ -1,0 +1,318 @@
+[eval] greedy_c_stable on held-out maps: 101.3 homes lost
+[bc] 10784 expert decisions from 40 episodes
+[bc] epoch 1/15 loss 1.542
+[bc] epoch 2/15 loss 0.477
+[bc] epoch 3/15 loss 0.338
+[bc] epoch 4/15 loss 0.331
+[bc] epoch 5/15 loss 0.327
+[bc] epoch 6/15 loss 0.323
+[bc] epoch 7/15 loss 0.319
+[bc] epoch 8/15 loss 0.317
+[bc] epoch 9/15 loss 0.314
+[bc] epoch 10/15 loss 0.313
+[bc] epoch 11/15 loss 0.310
+[bc] epoch 12/15 loss 0.307
+[bc] epoch 13/15 loss 0.305
+[bc] epoch 14/15 loss 0.303
+[bc] epoch 15/15 loss 0.301
+[eval] after BC: 128.2 homes lost, 56.7% value saved
+[ppo] iter 1 train homes lost 80.6 | pg 0.021 v 0.359 ent 0.36 | 16s
+[ppo] iter 2 train homes lost 54.5 | pg -0.091 v 0.126 ent 0.39 | 18s
+[ppo] iter 3 train homes lost 97.9 | pg -0.101 v 0.528 ent 0.50 | 13s
+[ppo] iter 4 train homes lost 77.6 | pg -0.044 v 0.228 ent 0.45 | 15s
+[ppo] iter 5 train homes lost 114.5 | pg 0.028 v 0.439 ent 0.44 | 12s
+[ppo] iter 6 train homes lost 127.4 | pg 0.009 v 0.285 ent 0.50 | 16s
+[ppo] iter 7 train homes lost 92.6 | pg 0.032 v 0.218 ent 0.46 | 17s
+[ppo] iter 8 train homes lost 76.4 | pg -0.152 v 0.112 ent 0.50 | 19s
+[ppo] iter 9 train homes lost 131.2 | pg 0.049 v 0.439 ent 0.45 | 17s
+[ppo] iter 10 train homes lost 113.6 | pg 0.098 v 0.365 ent 0.54 | 38s | eval 125.7 vs greedy_c_stable 101.3
+[ppo] iter 11 train homes lost 124.2 | pg -0.047 v 0.389 ent 0.54 | 22s
+[ppo] iter 12 train homes lost 119.5 | pg -0.059 v 0.658 ent 0.61 | 21s
+[ppo] iter 13 train homes lost 101.2 | pg -0.033 v 0.308 ent 0.68 | 21s
+[ppo] iter 14 train homes lost 112.8 | pg 0.032 v 0.333 ent 0.61 | 22s
+[ppo] iter 15 train homes lost 89.9 | pg -0.051 v 0.363 ent 0.59 | 25s
+[ppo] iter 16 train homes lost 122.0 | pg 0.004 v 0.290 ent 0.55 | 22s
+[ppo] iter 17 train homes lost 95.5 | pg -0.103 v 0.184 ent 0.61 | 20s
+[ppo] iter 18 train homes lost 97.6 | pg 0.054 v 0.276 ent 0.67 | 22s
+[ppo] iter 19 train homes lost 78.2 | pg -0.088 v 0.126 ent 0.65 | 23s
+[ppo] iter 20 train homes lost 98.5 | pg 0.028 v 0.331 ent 0.62 | 42s | eval 122.6 vs greedy_c_stable 101.3
+[ppo] iter 21 train homes lost 77.1 | pg 0.095 v 0.149 ent 0.70 | 22s
+[ppo] iter 22 train homes lost 108.9 | pg 0.507 v 0.515 ent 0.64 | 24s
+[ppo] iter 23 train homes lost 69.1 | pg 0.098 v 0.125 ent 0.72 | 25s
+[ppo] iter 24 train homes lost 134.5 | pg 0.084 v 0.441 ent 0.79 | 22s
+[ppo] iter 25 train homes lost 105.6 | pg -0.003 v 0.312 ent 0.79 | 20s
+[ppo] iter 26 train homes lost 124.8 | pg -0.001 v 0.556 ent 0.70 | 21s
+[ppo] iter 27 train homes lost 96.6 | pg -0.025 v 0.254 ent 0.65 | 24s
+[ppo] iter 28 train homes lost 98.2 | pg -0.015 v 0.346 ent 0.75 | 22s
+[ppo] iter 29 train homes lost 101.6 | pg -0.000 v 0.215 ent 0.72 | 22s
+[ppo] iter 30 train homes lost 121.4 | pg -0.154 v 0.344 ent 0.70 | 39s | eval 137.5 vs greedy_c_stable 101.3
+[ppo] iter 31 train homes lost 106.9 | pg -0.026 v 0.301 ent 0.62 | 21s
+[ppo] iter 32 train homes lost 122.0 | pg -0.002 v 0.580 ent 0.57 | 17s
+[ppo] iter 33 train homes lost 80.9 | pg -0.073 v 0.140 ent 0.64 | 23s
+[ppo] iter 34 train homes lost 103.5 | pg 0.127 v 0.126 ent 0.60 | 21s
+[ppo] iter 35 train homes lost 94.6 | pg 0.067 v 0.235 ent 0.63 | 20s
+[ppo] iter 36 train homes lost 74.8 | pg 0.020 v 0.224 ent 0.69 | 23s
+[ppo] iter 37 train homes lost 127.5 | pg -0.135 v 0.275 ent 0.56 | 17s
+[ppo] iter 38 train homes lost 116.1 | pg 0.098 v 0.157 ent 0.65 | 18s
+[ppo] iter 39 train homes lost 108.4 | pg 0.093 v 0.476 ent 0.74 | 19s
+[ppo] iter 40 train homes lost 102.5 | pg 0.120 v 0.082 ent 0.78 | 40s | eval 128.4 vs greedy_c_stable 101.3
+[ppo] iter 41 train homes lost 113.8 | pg -0.066 v 0.321 ent 0.73 | 19s
+[ppo] iter 42 train homes lost 112.5 | pg 0.127 v 0.134 ent 0.78 | 21s
+[ppo] iter 43 train homes lost 62.5 | pg 0.059 v 0.211 ent 0.72 | 23s
+[ppo] iter 44 train homes lost 100.0 | pg 0.344 v 0.899 ent 0.91 | 19s
+[ppo] iter 45 train homes lost 117.8 | pg 0.160 v 0.686 ent 0.72 | 20s
+[ppo] iter 46 train homes lost 85.8 | pg 0.018 v 0.202 ent 0.70 | 22s
+[ppo] iter 47 train homes lost 66.9 | pg 0.039 v 0.113 ent 0.76 | 24s
+[ppo] iter 48 train homes lost 107.2 | pg 0.079 v 0.237 ent 0.78 | 22s
+[ppo] iter 49 train homes lost 113.4 | pg -0.019 v 0.357 ent 0.84 | 17s
+[ppo] iter 50 train homes lost 104.2 | pg 0.004 v 0.390 ent 0.79 | 39s | eval 125.2 vs greedy_c_stable 101.3
+[ppo] iter 51 train homes lost 98.2 | pg -0.049 v 0.313 ent 0.86 | 21s
+[ppo] iter 52 train homes lost 72.6 | pg 0.062 v 0.379 ent 0.94 | 19s
+[ppo] iter 53 train homes lost 55.6 | pg -0.016 v 0.145 ent 0.89 | 24s
+[ppo] iter 54 train homes lost 83.8 | pg 0.041 v 0.358 ent 0.81 | 23s
+[ppo] iter 55 train homes lost 118.8 | pg 0.022 v 0.179 ent 0.83 | 21s
+[ppo] iter 56 train homes lost 95.4 | pg -0.018 v 0.301 ent 0.91 | 19s
+[ppo] iter 57 train homes lost 140.9 | pg 0.079 v 0.279 ent 0.75 | 22s
+[ppo] iter 58 train homes lost 104.5 | pg 0.083 v 0.330 ent 0.80 | 19s
+[ppo] iter 59 train homes lost 115.4 | pg 0.110 v 0.400 ent 0.96 | 17s
+[ppo] iter 60 train homes lost 98.8 | pg 0.081 v 0.187 ent 0.97 | 42s | eval 131.4 vs greedy_c_stable 101.3
+[ppo] iter 61 train homes lost 71.6 | pg 0.036 v 0.315 ent 0.96 | 19s
+[ppo] iter 62 train homes lost 95.4 | pg -0.025 v 0.322 ent 0.99 | 21s
+[ppo] iter 63 train homes lost 110.0 | pg -0.096 v 0.332 ent 1.00 | 17s
+[ppo] iter 64 train homes lost 84.1 | pg 0.023 v 0.103 ent 0.96 | 23s
+[ppo] iter 65 train homes lost 84.8 | pg -0.045 v 0.106 ent 1.01 | 23s
+[ppo] iter 66 train homes lost 91.2 | pg 0.051 v 0.419 ent 0.96 | 20s
+[ppo] iter 67 train homes lost 123.5 | pg -0.065 v 0.095 ent 0.84 | 16s
+[ppo] iter 68 train homes lost 71.6 | pg -0.155 v 0.225 ent 0.91 | 21s
+[ppo] iter 69 train homes lost 107.1 | pg -0.044 v 0.236 ent 0.97 | 21s
+[ppo] iter 70 train homes lost 110.1 | pg 0.012 v 0.241 ent 1.15 | 41s | eval 126.0 vs greedy_c_stable 101.3
+[ppo] iter 71 train homes lost 91.1 | pg -0.035 v 0.161 ent 1.10 | 21s
+[ppo] iter 72 train homes lost 98.5 | pg 0.121 v 0.248 ent 1.14 | 19s
+[ppo] iter 73 train homes lost 82.1 | pg 0.007 v 0.170 ent 1.15 | 19s
+[ppo] iter 74 train homes lost 122.0 | pg -0.001 v 0.163 ent 1.10 | 19s
+[ppo] iter 75 train homes lost 100.1 | pg 0.101 v 0.252 ent 1.06 | 19s
+[ppo] iter 76 train homes lost 93.8 | pg -0.101 v 0.083 ent 1.08 | 23s
+[ppo] iter 77 train homes lost 75.9 | pg 0.148 v 0.091 ent 1.09 | 22s
+[ppo] iter 78 train homes lost 122.9 | pg -0.171 v 0.470 ent 1.15 | 17s
+[ppo] iter 79 train homes lost 117.2 | pg 0.050 v 0.354 ent 1.09 | 19s
+[ppo] iter 80 train homes lost 80.6 | pg -0.039 v 0.108 ent 1.18 | 42s | eval 132.1 vs greedy_c_stable 101.3
+[ppo] iter 81 train homes lost 107.6 | pg 0.139 v 0.264 ent 1.15 | 18s
+[ppo] iter 82 train homes lost 98.0 | pg 0.016 v 0.092 ent 1.17 | 18s
+[ppo] iter 83 train homes lost 116.5 | pg 0.053 v 0.175 ent 1.02 | 24s
+[ppo] iter 84 train homes lost 104.5 | pg -0.168 v 0.208 ent 1.05 | 20s
+[ppo] iter 85 train homes lost 97.1 | pg 0.014 v 0.009 ent 0.35 | 17s
+[ppo] iter 86 train homes lost 126.0 | pg 0.080 v 0.228 ent 1.08 | 22s
+[ppo] iter 87 train homes lost 68.1 | pg -0.100 v 0.001 ent 0.68 | 21s
+[ppo] iter 88 train homes lost 80.8 | pg 0.692 v 0.326 ent 1.51 | 22s
+[ppo] iter 89 train homes lost 100.5 | pg 0.042 v 0.340 ent 0.98 | 21s
+[ppo] iter 90 train homes lost 111.5 | pg 0.013 v 0.202 ent 1.06 | 40s | eval 122.4 vs greedy_c_stable 101.3
+[ppo] iter 91 train homes lost 111.5 | pg -0.017 v 0.159 ent 1.02 | 22s
+[ppo] iter 92 train homes lost 137.9 | pg 0.042 v 0.389 ent 1.17 | 18s
+[ppo] iter 93 train homes lost 85.6 | pg -0.049 v 0.297 ent 1.08 | 18s
+[ppo] iter 94 train homes lost 118.4 | pg -0.089 v 0.121 ent 1.04 | 21s
+[ppo] iter 95 train homes lost 79.8 | pg -0.023 v 0.352 ent 1.14 | 17s
+[ppo] iter 96 train homes lost 109.4 | pg -0.070 v 0.117 ent 1.07 | 20s
+[ppo] iter 97 train homes lost 86.9 | pg 0.074 v 0.253 ent 1.11 | 17s
+[ppo] iter 98 train homes lost 113.2 | pg -0.260 v 0.161 ent 1.13 | 20s
+[ppo] iter 99 train homes lost 82.0 | pg -0.091 v 0.188 ent 0.94 | 23s
+[ppo] iter 100 train homes lost 98.8 | pg -0.005 v 0.310 ent 0.98 | 41s | eval 129.2 vs greedy_c_stable 101.3
+[ppo] iter 101 train homes lost 100.6 | pg -0.030 v 0.264 ent 0.96 | 20s
+[ppo] iter 102 train homes lost 104.1 | pg -0.046 v 0.337 ent 1.02 | 24s
+[ppo] iter 103 train homes lost 124.2 | pg 0.142 v 0.600 ent 0.96 | 20s
+[ppo] iter 104 train homes lost 81.6 | pg -0.207 v 0.061 ent 0.95 | 22s
+[ppo] iter 105 train homes lost 95.6 | pg 0.127 v 0.354 ent 0.97 | 20s
+[ppo] iter 106 train homes lost 71.4 | pg 0.088 v 0.183 ent 0.99 | 23s
+[ppo] iter 107 train homes lost 127.1 | pg -0.260 v 0.129 ent 1.05 | 20s
+[ppo] iter 108 train homes lost 91.5 | pg 0.009 v 0.127 ent 1.06 | 19s
+[ppo] iter 109 train homes lost 69.2 | pg -0.047 v 0.122 ent 1.06 | 21s
+[ppo] iter 110 train homes lost 110.8 | pg -0.216 v 0.071 ent 0.96 | 38s | eval 133.0 vs greedy_c_stable 101.3
+[ppo] iter 111 train homes lost 138.5 | pg 0.024 v 0.313 ent 1.01 | 18s
+[ppo] iter 112 train homes lost 119.9 | pg 0.043 v 0.087 ent 0.99 | 20s
+[ppo] iter 113 train homes lost 77.8 | pg 0.079 v 0.115 ent 1.08 | 21s
+[ppo] iter 114 train homes lost 109.2 | pg 0.156 v 0.192 ent 1.05 | 18s
+[ppo] iter 115 train homes lost 138.2 | pg -0.020 v 0.176 ent 1.10 | 20s
+[ppo] iter 116 train homes lost 109.4 | pg -0.063 v 0.193 ent 1.06 | 20s
+[ppo] iter 117 train homes lost 99.5 | pg 0.077 v 0.158 ent 1.16 | 19s
+[ppo] iter 118 train homes lost 124.9 | pg -0.046 v 0.299 ent 0.98 | 18s
+[ppo] iter 119 train homes lost 120.1 | pg 0.024 v 0.264 ent 1.05 | 17s
+[ppo] iter 120 train homes lost 97.2 | pg 0.053 v 0.270 ent 1.05 | 40s | eval 131.6 vs greedy_c_stable 101.3
+[ppo] iter 121 train homes lost 144.5 | pg -0.076 v 0.197 ent 0.97 | 20s
+[ppo] iter 122 train homes lost 116.2 | pg -0.010 v 0.385 ent 1.00 | 20s
+[ppo] iter 123 train homes lost 91.8 | pg -0.117 v 0.126 ent 1.00 | 22s
+[ppo] iter 124 train homes lost 110.6 | pg -0.028 v 0.262 ent 0.99 | 18s
+[ppo] iter 125 train homes lost 127.2 | pg 0.104 v 0.346 ent 0.91 | 19s
+[ppo] iter 126 train homes lost 114.2 | pg 0.303 v 0.237 ent 0.95 | 23s
+[ppo] iter 127 train homes lost 107.5 | pg -0.307 v 0.176 ent 0.90 | 24s
+[ppo] iter 128 train homes lost 106.5 | pg 0.233 v 0.202 ent 1.06 | 18s
+[ppo] iter 129 train homes lost 128.8 | pg 0.156 v 0.169 ent 0.90 | 19s
+[ppo] iter 130 train homes lost 104.9 | pg -0.261 v 0.150 ent 0.90 | 42s | eval 137.5 vs greedy_c_stable 101.3
+[ppo] iter 131 train homes lost 78.1 | pg 0.127 v 0.147 ent 0.90 | 21s
+[ppo] iter 132 train homes lost 98.4 | pg -0.001 v 0.319 ent 0.94 | 18s
+[ppo] iter 133 train homes lost 74.2 | pg -0.734 v 0.233 ent 0.99 | 22s
+[ppo] iter 134 train homes lost 118.2 | pg -0.052 v 0.108 ent 0.87 | 20s
+[ppo] iter 135 train homes lost 102.6 | pg 0.335 v 0.434 ent 0.95 | 22s
+[ppo] iter 136 train homes lost 108.9 | pg -0.029 v 0.218 ent 0.87 | 22s
+[ppo] iter 137 train homes lost 112.5 | pg 0.031 v 0.200 ent 0.92 | 21s
+[ppo] iter 138 train homes lost 82.8 | pg -0.166 v 0.096 ent 1.01 | 21s
+[ppo] iter 139 train homes lost 130.0 | pg 0.075 v 0.289 ent 1.09 | 18s
+[ppo] iter 140 train homes lost 131.0 | pg -0.016 v 0.351 ent 1.18 | 36s | eval 135.8 vs greedy_c_stable 101.3
+[ppo] iter 141 train homes lost 87.9 | pg -0.133 v 0.331 ent 1.10 | 22s
+[ppo] iter 142 train homes lost 114.5 | pg -0.168 v 0.494 ent 1.12 | 22s
+[ppo] iter 143 train homes lost 114.5 | pg 0.074 v 0.170 ent 1.07 | 21s
+[ppo] iter 144 train homes lost 122.8 | pg 0.033 v 0.226 ent 0.97 | 22s
+[ppo] iter 145 train homes lost 103.0 | pg -0.074 v 0.280 ent 1.01 | 22s
+[ppo] iter 146 train homes lost 112.1 | pg -0.023 v 0.242 ent 0.98 | 21s
+[ppo] iter 147 train homes lost 130.1 | pg 0.040 v 0.503 ent 1.12 | 17s
+[ppo] iter 148 train homes lost 85.2 | pg -0.065 v 0.118 ent 1.02 | 20s
+[ppo] iter 149 train homes lost 89.4 | pg 0.080 v 0.173 ent 0.94 | 20s
+[ppo] iter 150 train homes lost 96.8 | pg 0.089 v 0.256 ent 1.04 | 43s | eval 137.4 vs greedy_c_stable 101.3
+[ppo] iter 151 train homes lost 112.0 | pg -0.012 v 0.126 ent 1.06 | 19s
+[ppo] iter 152 train homes lost 104.4 | pg -0.017 v 0.338 ent 0.99 | 16s
+[ppo] iter 153 train homes lost 108.9 | pg 0.011 v 0.221 ent 1.05 | 18s
+[ppo] iter 154 train homes lost 139.2 | pg -0.105 v 0.210 ent 0.95 | 20s
+[ppo] iter 155 train homes lost 102.0 | pg -0.019 v 0.181 ent 1.03 | 19s
+[ppo] iter 156 train homes lost 105.8 | pg -0.064 v 0.281 ent 0.92 | 21s
+[ppo] iter 157 train homes lost 91.8 | pg 0.108 v 0.295 ent 0.96 | 21s
+[ppo] iter 158 train homes lost 43.0 | pg -0.037 v 0.098 ent 0.85 | 25s
+[ppo] iter 159 train homes lost 85.0 | pg -0.241 v 0.150 ent 1.09 | 19s
+[ppo] iter 160 train homes lost 95.1 | pg -0.235 v 0.140 ent 1.08 | 47s | eval 136.0 vs greedy_c_stable 101.3
+[ppo] iter 161 train homes lost 106.5 | pg -0.140 v 0.091 ent 0.96 | 20s
+[ppo] iter 162 train homes lost 147.0 | pg 0.308 v 0.291 ent 0.87 | 20s
+[ppo] iter 163 train homes lost 71.9 | pg 0.043 v 0.064 ent 0.93 | 22s
+[ppo] iter 164 train homes lost 116.8 | pg -0.014 v 0.155 ent 0.95 | 17s
+[ppo] iter 165 train homes lost 135.6 | pg -0.029 v 0.433 ent 1.02 | 18s
+[ppo] iter 166 train homes lost 102.0 | pg -0.017 v 0.273 ent 0.93 | 20s
+[ppo] iter 167 train homes lost 144.6 | pg -0.132 v 0.435 ent 0.90 | 19s
+[ppo] iter 168 train homes lost 126.5 | pg 0.154 v 0.537 ent 1.02 | 19s
+[ppo] iter 169 train homes lost 130.1 | pg 0.078 v 0.289 ent 1.06 | 18s
+[ppo] iter 170 train homes lost 119.2 | pg -0.394 v 0.164 ent 0.72 | 40s | eval 131.8 vs greedy_c_stable 101.3
+[ppo] iter 171 train homes lost 135.8 | pg -0.075 v 0.372 ent 1.05 | 18s
+[ppo] iter 172 train homes lost 97.9 | pg 0.111 v 0.211 ent 1.01 | 20s
+[ppo] iter 173 train homes lost 112.6 | pg 0.029 v 0.162 ent 0.96 | 19s
+[ppo] iter 174 train homes lost 131.4 | pg -0.103 v 0.302 ent 0.89 | 19s
+[ppo] iter 175 train homes lost 92.4 | pg -0.004 v 0.103 ent 1.02 | 20s
+[ppo] iter 176 train homes lost 114.5 | pg -0.075 v 0.194 ent 1.02 | 21s
+[ppo] iter 177 train homes lost 87.8 | pg 0.081 v 0.139 ent 1.05 | 22s
+[ppo] iter 178 train homes lost 83.9 | pg 0.466 v 0.593 ent 1.11 | 22s
+[ppo] iter 179 train homes lost 90.1 | pg -0.067 v 0.226 ent 1.06 | 20s
+[ppo] iter 180 train homes lost 129.8 | pg -0.019 v 0.412 ent 1.04 | 35s | eval 133.3 vs greedy_c_stable 101.3
+[ppo] iter 181 train homes lost 145.0 | pg -0.104 v 0.484 ent 0.99 | 20s
+[ppo] iter 182 train homes lost 107.2 | pg -0.172 v 0.218 ent 0.96 | 20s
+[ppo] iter 183 train homes lost 116.9 | pg 0.113 v 0.296 ent 1.21 | 21s
+[ppo] iter 184 train homes lost 65.1 | pg 0.101 v 0.119 ent 0.96 | 21s
+[ppo] iter 185 train homes lost 102.9 | pg 0.039 v 0.288 ent 1.14 | 20s
+[ppo] iter 186 train homes lost 120.1 | pg 0.131 v 0.144 ent 1.16 | 23s
+[ppo] iter 187 train homes lost 121.1 | pg -0.117 v 0.267 ent 1.25 | 17s
+[ppo] iter 188 train homes lost 127.8 | pg 0.132 v 0.564 ent 1.22 | 17s
+[ppo] iter 189 train homes lost 95.2 | pg 0.012 v 0.136 ent 1.21 | 21s
+[ppo] iter 190 train homes lost 105.5 | pg -0.127 v 0.473 ent 1.08 | 44s | eval 130.7 vs greedy_c_stable 101.3
+[ppo] iter 191 train homes lost 95.5 | pg -0.085 v 0.158 ent 1.20 | 23s
+[ppo] iter 192 train homes lost 73.2 | pg 0.021 v 0.193 ent 1.07 | 21s
+[ppo] iter 193 train homes lost 114.4 | pg 0.065 v 0.142 ent 1.08 | 20s
+[ppo] iter 194 train homes lost 103.1 | pg 0.096 v 0.150 ent 1.28 | 20s
+[ppo] iter 195 train homes lost 76.8 | pg -0.017 v 0.375 ent 1.14 | 20s
+[ppo] iter 196 train homes lost 98.6 | pg 0.075 v 0.239 ent 1.26 | 22s
+[ppo] iter 197 train homes lost 112.8 | pg 0.023 v 0.234 ent 1.08 | 19s
+[ppo] iter 198 train homes lost 89.6 | pg -0.110 v 0.106 ent 1.11 | 22s
+[ppo] iter 199 train homes lost 112.5 | pg -0.100 v 0.257 ent 1.08 | 21s
+[ppo] iter 200 train homes lost 138.5 | pg -0.154 v 0.273 ent 1.06 | 36s | eval 127.8 vs greedy_c_stable 101.3
+[ppo] iter 201 train homes lost 123.2 | pg -0.076 v 0.256 ent 1.25 | 19s
+[ppo] iter 202 train homes lost 114.4 | pg -0.174 v 0.240 ent 1.20 | 17s
+[ppo] iter 203 train homes lost 108.5 | pg -0.025 v 0.258 ent 1.20 | 20s
+[ppo] iter 204 train homes lost 101.5 | pg -0.046 v 0.059 ent 1.31 | 21s
+[ppo] iter 205 train homes lost 100.5 | pg 0.041 v 0.242 ent 1.12 | 18s
+[ppo] iter 206 train homes lost 114.8 | pg 0.153 v 0.232 ent 1.18 | 18s
+[ppo] iter 207 train homes lost 87.5 | pg -0.025 v 0.145 ent 1.28 | 22s
+[ppo] iter 208 train homes lost 105.0 | pg -0.059 v 0.281 ent 1.23 | 22s
+[ppo] iter 209 train homes lost 111.5 | pg -0.206 v 0.310 ent 1.35 | 21s
+[ppo] iter 210 train homes lost 99.2 | pg 0.043 v 0.181 ent 1.33 | 44s | eval 125.3 vs greedy_c_stable 101.3
+[ppo] iter 211 train homes lost 121.1 | pg -0.085 v 0.195 ent 1.18 | 20s
+[ppo] iter 212 train homes lost 102.4 | pg -0.005 v 0.170 ent 1.25 | 23s
+[ppo] iter 213 train homes lost 103.6 | pg -0.089 v 0.081 ent 1.23 | 22s
+[ppo] iter 214 train homes lost 79.4 | pg -0.071 v 0.132 ent 1.12 | 21s
+[ppo] iter 215 train homes lost 138.9 | pg -0.062 v 0.194 ent 1.12 | 18s
+[ppo] iter 216 train homes lost 140.2 | pg 0.039 v 0.332 ent 1.17 | 19s
+[ppo] iter 217 train homes lost 108.4 | pg 0.061 v 0.183 ent 1.16 | 20s
+[ppo] iter 218 train homes lost 117.0 | pg -0.024 v 0.656 ent 1.22 | 18s
+[ppo] iter 219 train homes lost 119.0 | pg 0.056 v 0.482 ent 1.13 | 17s
+[ppo] iter 220 train homes lost 128.4 | pg 0.045 v 0.170 ent 1.12 | 39s | eval 143.7 vs greedy_c_stable 101.3
+[ppo] iter 221 train homes lost 134.8 | pg -0.100 v 0.171 ent 1.17 | 21s
+[ppo] iter 222 train homes lost 92.2 | pg 0.042 v 0.226 ent 1.15 | 20s
+[ppo] iter 223 train homes lost 101.8 | pg -0.055 v 0.085 ent 1.23 | 21s
+[ppo] iter 224 train homes lost 104.6 | pg -0.275 v 0.056 ent 1.22 | 24s
+[ppo] iter 225 train homes lost 78.4 | pg 0.184 v 0.319 ent 1.18 | 20s
+[ppo] iter 226 train homes lost 111.4 | pg -0.086 v 0.270 ent 1.19 | 21s
+[ppo] iter 227 train homes lost 116.1 | pg 0.083 v 0.210 ent 1.22 | 18s
+[ppo] iter 228 train homes lost 99.2 | pg 0.022 v 0.397 ent 1.24 | 17s
+[ppo] iter 229 train homes lost 103.9 | pg 0.027 v 0.269 ent 1.14 | 19s
+[ppo] iter 230 train homes lost 92.4 | pg -0.044 v 0.192 ent 1.22 | 42s | eval 128.9 vs greedy_c_stable 101.3
+[ppo] iter 231 train homes lost 128.0 | pg -0.032 v 0.363 ent 1.16 | 19s
+[ppo] iter 232 train homes lost 115.2 | pg -0.025 v 0.228 ent 1.24 | 17s
+[ppo] iter 233 train homes lost 107.9 | pg -0.014 v 0.403 ent 1.25 | 20s
+[ppo] iter 234 train homes lost 114.6 | pg 0.133 v 0.235 ent 1.25 | 18s
+[ppo] iter 235 train homes lost 106.0 | pg 0.051 v 0.329 ent 1.18 | 19s
+[ppo] iter 236 train homes lost 72.4 | pg 0.180 v 0.057 ent 1.33 | 20s
+[ppo] iter 237 train homes lost 113.0 | pg -0.000 v 0.139 ent 1.31 | 20s
+[ppo] iter 238 train homes lost 98.9 | pg 0.020 v 0.165 ent 1.30 | 19s
+[ppo] iter 239 train homes lost 106.1 | pg -0.095 v 0.156 ent 1.31 | 21s
+[ppo] iter 240 train homes lost 90.4 | pg 0.059 v 0.113 ent 1.27 | 43s | eval 125.1 vs greedy_c_stable 101.3
+[ppo] iter 241 train homes lost 123.4 | pg 0.054 v 0.147 ent 1.11 | 22s
+[ppo] iter 242 train homes lost 108.8 | pg 0.066 v 0.210 ent 1.47 | 21s
+[ppo] iter 243 train homes lost 102.1 | pg -0.255 v 0.252 ent 1.37 | 17s
+[ppo] iter 244 train homes lost 131.6 | pg -0.030 v 0.271 ent 1.07 | 18s
+[ppo] iter 245 train homes lost 107.1 | pg 0.118 v 0.175 ent 1.15 | 20s
+[ppo] iter 246 train homes lost 91.2 | pg -0.063 v 0.163 ent 1.27 | 21s
+[ppo] iter 247 train homes lost 138.1 | pg -0.056 v 0.286 ent 1.17 | 21s
+[ppo] iter 248 train homes lost 96.9 | pg 1.455 v 1.481 ent 1.29 | 20s
+[ppo] iter 249 train homes lost 99.2 | pg 0.531 v 0.715 ent 1.46 | 19s
+[ppo] iter 250 train homes lost 94.1 | pg 0.115 v 0.174 ent 1.38 | 40s | eval 133.0 vs greedy_c_stable 101.3
+[ppo] iter 251 train homes lost 92.9 | pg -0.061 v 0.174 ent 1.20 | 19s
+[ppo] iter 252 train homes lost 97.6 | pg 0.079 v 0.006 ent 0.96 | 23s
+[ppo] iter 253 train homes lost 70.8 | pg 0.574 v 0.165 ent 1.08 | 17s
+[ppo] iter 254 train homes lost 92.2 | pg 0.014 v 0.312 ent 1.04 | 19s
+[ppo] iter 255 train homes lost 107.6 | pg 0.102 v 0.258 ent 1.14 | 21s
+[ppo] iter 256 train homes lost 102.6 | pg 0.142 v 0.129 ent 1.29 | 18s
+[ppo] iter 257 train homes lost 110.6 | pg -0.049 v 0.164 ent 1.18 | 20s
+[ppo] iter 258 train homes lost 124.1 | pg 0.179 v 0.411 ent 1.25 | 18s
+[ppo] iter 259 train homes lost 95.9 | pg 0.088 v 0.262 ent 1.26 | 22s
+[ppo] iter 260 train homes lost 116.8 | pg -0.034 v 0.364 ent 1.22 | 44s | eval 126.2 vs greedy_c_stable 101.3
+[ppo] iter 261 train homes lost 108.6 | pg 0.072 v 0.194 ent 1.21 | 18s
+[ppo] iter 262 train homes lost 118.5 | pg -0.069 v 0.213 ent 1.16 | 19s
+[ppo] iter 263 train homes lost 110.2 | pg 0.137 v 0.295 ent 1.27 | 23s
+[ppo] iter 264 train homes lost 97.1 | pg 0.044 v 0.411 ent 1.30 | 22s
+[ppo] iter 265 train homes lost 71.9 | pg 0.135 v 0.161 ent 1.21 | 23s
+[ppo] iter 266 train homes lost 120.5 | pg 0.024 v 0.560 ent 1.11 | 19s
+[ppo] iter 267 train homes lost 119.6 | pg -0.278 v 0.530 ent 1.31 | 17s
+[ppo] iter 268 train homes lost 110.9 | pg -0.078 v 0.159 ent 1.25 | 22s
+[ppo] iter 269 train homes lost 111.5 | pg 0.039 v 0.378 ent 1.23 | 19s
+[ppo] iter 270 train homes lost 105.8 | pg -0.055 v 0.217 ent 1.14 | 42s | eval 141.8 vs greedy_c_stable 101.3
+[ppo] iter 271 train homes lost 146.9 | pg 0.078 v 0.343 ent 1.15 | 17s
+[ppo] iter 272 train homes lost 115.9 | pg 0.007 v 0.170 ent 1.24 | 21s
+[ppo] iter 273 train homes lost 116.6 | pg 0.022 v 0.170 ent 1.13 | 20s
+[ppo] iter 274 train homes lost 99.4 | pg -0.049 v 0.265 ent 1.30 | 21s
+[ppo] iter 275 train homes lost 130.0 | pg -0.013 v 0.284 ent 1.17 | 20s
+[ppo] iter 276 train homes lost 104.1 | pg -0.176 v 0.170 ent 1.18 | 19s
+[ppo] iter 277 train homes lost 137.5 | pg 0.040 v 0.174 ent 1.24 | 20s
+[ppo] iter 278 train homes lost 133.4 | pg 0.015 v 0.196 ent 1.14 | 21s
+[ppo] iter 279 train homes lost 104.1 | pg -0.120 v 0.495 ent 1.15 | 21s
+[ppo] iter 280 train homes lost 143.6 | pg 0.023 v 0.371 ent 1.13 | 37s | eval 138.7 vs greedy_c_stable 101.3
+[ppo] iter 281 train homes lost 84.0 | pg 0.239 v 0.205 ent 1.23 | 21s
+[ppo] iter 282 train homes lost 96.9 | pg -0.013 v 0.190 ent 1.10 | 18s
+[ppo] iter 283 train homes lost 140.4 | pg 0.444 v 0.583 ent 1.14 | 21s
+[ppo] iter 284 train homes lost 113.9 | pg -0.011 v 0.172 ent 1.12 | 20s
+[ppo] iter 285 train homes lost 93.1 | pg 0.103 v 0.118 ent 1.16 | 21s
+[ppo] iter 286 train homes lost 105.9 | pg 0.023 v 0.155 ent 1.19 | 21s
+[ppo] iter 287 train homes lost 67.5 | pg -0.075 v 0.188 ent 1.12 | 20s
+[ppo] iter 288 train homes lost 154.6 | pg -0.006 v 0.190 ent 1.16 | 17s
+[ppo] iter 289 train homes lost 102.2 | pg 0.107 v 0.802 ent 1.15 | 17s
+[ppo] iter 290 train homes lost 115.9 | pg -0.103 v 0.129 ent 1.13 | 38s | eval 143.7 vs greedy_c_stable 101.3
+[ppo] iter 291 train homes lost 144.5 | pg -0.027 v 0.209 ent 1.13 | 18s
+[ppo] iter 292 train homes lost 159.0 | pg 0.146 v 0.223 ent 1.13 | 22s
+[ppo] iter 293 train homes lost 101.5 | pg -0.013 v 0.156 ent 1.07 | 21s
+[ppo] iter 294 train homes lost 80.8 | pg -0.008 v 0.254 ent 1.08 | 21s
+[ppo] iter 295 train homes lost 156.5 | pg -0.364 v 0.496 ent 1.22 | 17s
+[ppo] iter 296 train homes lost 144.0 | pg -0.112 v 0.498 ent 1.10 | 19s
+[ppo] iter 297 train homes lost 136.0 | pg 0.132 v 0.653 ent 0.95 | 19s
+[ppo] iter 298 train homes lost 113.9 | pg 0.193 v 0.398 ent 1.02 | 22s
+[ppo] iter 299 train homes lost 135.6 | pg 0.139 v 0.186 ent 1.07 | 21s
+[ppo] iter 300 train homes lost 124.4 | pg -0.027 v 0.249 ent 1.07 | 39s | eval 155.5 vs greedy_c_stable 101.3

@@ -1,0 +1,15 @@
+# environments
+.venv/
+__pycache__/
+*.pyc
+
+# training runs: keep only the final model
+runs/*
+!runs/gnn4/
+runs/gnn4/*
+!runs/gnn4/best.pt
+!runs/gnn4/config.json
+!runs/gnn4/log.csv
+
+# raw training logs
+train*.log

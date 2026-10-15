@@ -1,0 +1,207 @@
+[eval] greedy_break on 20 held-out maps: 62.7 homes lost
+[bc] 1331 labelled decisions, final loss 0.291
+[eval] after BC: 62.7 homes lost vs greedy_break 62.7
+[dagger 1] 1923 labelled decisions, final loss 0.291
+[eval] after DAgger round 1: 62.7 homes lost vs greedy_break 62.7
+[dagger 2] 2648 labelled decisions, final loss 0.291
+[eval] after DAgger round 2: 62.7 homes lost vs greedy_break 62.7
+[ppo] iter 1 train 73.4 | anchor 0.50 imit 0.29 ent 0.31 v 6.302 | 23s
+[ppo] iter 2 train 64.8 | anchor 0.49 imit 0.29 ent 0.31 v 4.106 | 27s
+[ppo] iter 3 train 72.9 | anchor 0.49 imit 0.29 ent 0.29 v 6.080 | 23s
+[ppo] iter 4 train 55.7 | anchor 0.48 imit 0.29 ent 0.26 v 3.187 | 25s
+[ppo] iter 5 train 71.3 | anchor 0.48 imit 0.29 ent 0.24 v 5.869 | 24s
+[ppo] iter 6 train 70.6 | anchor 0.47 imit 0.30 ent 0.22 v 3.211 | 23s
+[ppo] iter 7 train 64.0 | anchor 0.47 imit 0.30 ent 0.22 v 2.927 | 24s
+[ppo] iter 8 train 54.3 | anchor 0.46 imit 0.30 ent 0.25 v 2.917 | 26s
+[ppo] iter 9 train 70.8 | anchor 0.46 imit 0.30 ent 0.24 v 1.970 | 23s
+[ppo] iter 10 train 60.2 | anchor 0.46 imit 0.29 ent 0.29 v 3.662 | 57s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 11 train 77.8 | anchor 0.45 imit 0.30 ent 0.28 v 2.494 | 23s
+[ppo] iter 12 train 73.6 | anchor 0.45 imit 0.30 ent 0.31 v 2.259 | 23s
+[ppo] iter 13 train 62.9 | anchor 0.44 imit 0.30 ent 0.30 v 2.046 | 25s
+[ppo] iter 14 train 74.1 | anchor 0.43 imit 0.30 ent 0.31 v 1.964 | 24s
+[ppo] iter 15 train 66.2 | anchor 0.43 imit 0.30 ent 0.32 v 1.793 | 24s
+[ppo] iter 16 train 75.9 | anchor 0.42 imit 0.30 ent 0.31 v 2.504 | 25s
+[ppo] iter 17 train 57.4 | anchor 0.42 imit 0.30 ent 0.29 v 2.380 | 24s
+[ppo] iter 18 train 56.8 | anchor 0.41 imit 0.30 ent 0.30 v 1.639 | 24s
+[ppo] iter 19 train 55.2 | anchor 0.41 imit 0.30 ent 0.31 v 4.805 | 27s
+[ppo] iter 20 train 72.6 | anchor 0.41 imit 0.30 ent 0.31 v 1.837 | 57s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 21 train 60.2 | anchor 0.40 imit 0.30 ent 0.31 v 0.927 | 24s
+[ppo] iter 22 train 48.6 | anchor 0.40 imit 0.30 ent 0.34 v 0.849 | 26s
+[ppo] iter 23 train 41.6 | anchor 0.39 imit 0.30 ent 0.33 v 1.047 | 29s
+[ppo] iter 24 train 87.8 | anchor 0.39 imit 0.30 ent 0.28 v 2.330 | 24s
+[ppo] iter 25 train 68.2 | anchor 0.38 imit 0.30 ent 0.32 v 2.041 | 27s
+[ppo] iter 26 train 68.8 | anchor 0.38 imit 0.30 ent 0.33 v 1.515 | 30s
+[ppo] iter 27 train 69.4 | anchor 0.37 imit 0.30 ent 0.35 v 1.579 | 30s
+[ppo] iter 28 train 55.9 | anchor 0.36 imit 0.30 ent 0.32 v 0.341 | 29s
+[ppo] iter 29 train 63.8 | anchor 0.36 imit 0.30 ent 0.33 v 1.215 | 30s
+[ppo] iter 30 train 69.7 | anchor 0.35 imit 0.30 ent 0.30 v 2.028 | 55s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 31 train 63.9 | anchor 0.35 imit 0.30 ent 0.30 v 1.586 | 24s
+[ppo] iter 32 train 65.1 | anchor 0.34 imit 0.30 ent 0.29 v 1.926 | 24s
+[ppo] iter 33 train 68.6 | anchor 0.34 imit 0.30 ent 0.31 v 1.663 | 27s
+[ppo] iter 34 train 50.2 | anchor 0.33 imit 0.29 ent 0.30 v 1.334 | 29s
+[ppo] iter 35 train 56.8 | anchor 0.33 imit 0.29 ent 0.30 v 0.935 | 25s
+[ppo] iter 36 train 50.2 | anchor 0.33 imit 0.29 ent 0.30 v 0.515 | 26s
+[ppo] iter 37 train 92.4 | anchor 0.32 imit 0.29 ent 0.26 v 3.214 | 22s
+[ppo] iter 38 train 84.4 | anchor 0.32 imit 0.29 ent 0.29 v 1.822 | 25s
+[ppo] iter 39 train 67.8 | anchor 0.31 imit 0.29 ent 0.30 v 1.970 | 25s
+[ppo] iter 40 train 69.1 | anchor 0.30 imit 0.29 ent 0.28 v 0.884 | 59s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 41 train 71.2 | anchor 0.30 imit 0.29 ent 0.32 v 1.069 | 24s
+[ppo] iter 42 train 57.2 | anchor 0.30 imit 0.29 ent 0.34 v 0.742 | 27s
+[ppo] iter 43 train 69.4 | anchor 0.29 imit 0.29 ent 0.32 v 1.324 | 26s
+[ppo] iter 44 train 52.4 | anchor 0.29 imit 0.29 ent 0.33 v 0.764 | 27s
+[ppo] iter 45 train 74.9 | anchor 0.28 imit 0.29 ent 0.32 v 1.203 | 22s
+[ppo] iter 46 train 64.1 | anchor 0.28 imit 0.29 ent 0.35 v 0.757 | 27s
+[ppo] iter 47 train 54.4 | anchor 0.27 imit 0.29 ent 0.34 v 0.907 | 27s
+[ppo] iter 48 train 62.6 | anchor 0.27 imit 0.29 ent 0.35 v 0.847 | 29s
+[ppo] iter 49 train 71.2 | anchor 0.26 imit 0.30 ent 0.37 v 0.587 | 24s
+[ppo] iter 50 train 71.5 | anchor 0.26 imit 0.30 ent 0.35 v 0.917 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 51 train 64.6 | anchor 0.25 imit 0.29 ent 0.34 v 1.420 | 25s
+[ppo] iter 52 train 59.2 | anchor 0.24 imit 0.29 ent 0.33 v 1.012 | 26s
+[ppo] iter 53 train 71.5 | anchor 0.24 imit 0.29 ent 0.31 v 0.772 | 26s
+[ppo] iter 54 train 63.7 | anchor 0.23 imit 0.29 ent 0.31 v 1.710 | 28s
+[ppo] iter 55 train 63.7 | anchor 0.23 imit 0.29 ent 0.30 v 1.169 | 26s
+[ppo] iter 56 train 55.5 | anchor 0.22 imit 0.29 ent 0.31 v 0.710 | 24s
+[ppo] iter 57 train 77.3 | anchor 0.22 imit 0.29 ent 0.33 v 2.202 | 23s
+[ppo] iter 58 train 57.2 | anchor 0.22 imit 0.29 ent 0.31 v 0.682 | 25s
+[ppo] iter 59 train 82.8 | anchor 0.21 imit 0.29 ent 0.30 v 1.828 | 25s
+[ppo] iter 60 train 59.8 | anchor 0.21 imit 0.29 ent 0.33 v 1.084 | 61s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 61 train 67.4 | anchor 0.20 imit 0.29 ent 0.31 v 1.006 | 24s
+[ppo] iter 62 train 63.6 | anchor 0.20 imit 0.29 ent 0.29 v 1.366 | 28s
+[ppo] iter 63 train 69.1 | anchor 0.19 imit 0.29 ent 0.29 v 1.222 | 26s
+[ppo] iter 64 train 58.8 | anchor 0.18 imit 0.29 ent 0.28 v 1.113 | 26s
+[ppo] iter 65 train 55.2 | anchor 0.18 imit 0.29 ent 0.29 v 1.001 | 27s
+[ppo] iter 66 train 58.9 | anchor 0.17 imit 0.29 ent 0.30 v 0.501 | 26s
+[ppo] iter 67 train 74.1 | anchor 0.17 imit 0.29 ent 0.30 v 1.604 | 22s
+[ppo] iter 68 train 60.1 | anchor 0.16 imit 0.29 ent 0.30 v 0.873 | 25s
+[ppo] iter 69 train 58.5 | anchor 0.16 imit 0.29 ent 0.31 v 0.691 | 26s
+[ppo] iter 70 train 61.5 | anchor 0.16 imit 0.29 ent 0.33 v 0.557 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 71 train 62.1 | anchor 0.15 imit 0.29 ent 0.34 v 1.063 | 25s
+[ppo] iter 72 train 68.8 | anchor 0.15 imit 0.29 ent 0.36 v 2.155 | 28s
+[ppo] iter 73 train 69.6 | anchor 0.14 imit 0.29 ent 0.34 v 0.425 | 25s
+[ppo] iter 74 train 64.1 | anchor 0.14 imit 0.30 ent 0.39 v 1.187 | 23s
+[ppo] iter 75 train 66.1 | anchor 0.13 imit 0.30 ent 0.41 v 1.069 | 23s
+[ppo] iter 76 train 49.2 | anchor 0.12 imit 0.30 ent 0.39 v 1.996 | 26s
+[ppo] iter 77 train 46.1 | anchor 0.12 imit 0.30 ent 0.38 v 0.474 | 29s
+[ppo] iter 78 train 70.9 | anchor 0.11 imit 0.29 ent 0.35 v 1.899 | 22s
+[ppo] iter 79 train 57.5 | anchor 0.11 imit 0.29 ent 0.33 v 0.618 | 25s
+[ppo] iter 80 train 54.3 | anchor 0.10 imit 0.29 ent 0.32 v 1.993 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 81 train 81.6 | anchor 0.10 imit 0.29 ent 0.29 v 2.300 | 22s
+[ppo] iter 82 train 49.1 | anchor 0.10 imit 0.29 ent 0.29 v 1.236 | 26s
+[ppo] iter 83 train 69.0 | anchor 0.10 imit 0.29 ent 0.28 v 1.109 | 26s
+[ppo] iter 84 train 46.4 | anchor 0.10 imit 0.29 ent 0.30 v 0.865 | 27s
+[ppo] iter 85 train 69.5 | anchor 0.10 imit 0.29 ent 0.29 v 1.128 | 23s
+[ppo] iter 86 train 59.3 | anchor 0.10 imit 0.29 ent 0.32 v 1.057 | 28s
+[ppo] iter 87 train 45.8 | anchor 0.10 imit 0.29 ent 0.34 v 1.223 | 25s
+[ppo] iter 88 train 55.1 | anchor 0.10 imit 0.29 ent 0.36 v 1.077 | 27s
+[ppo] iter 89 train 54.5 | anchor 0.10 imit 0.30 ent 0.37 v 1.167 | 24s
+[ppo] iter 90 train 57.2 | anchor 0.10 imit 0.30 ent 0.39 v 0.989 | 59s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 91 train 62.0 | anchor 0.10 imit 0.30 ent 0.37 v 0.659 | 26s
+[ppo] iter 92 train 85.3 | anchor 0.10 imit 0.30 ent 0.40 v 1.196 | 23s
+[ppo] iter 93 train 65.6 | anchor 0.10 imit 0.30 ent 0.44 v 0.793 | 27s
+[ppo] iter 94 train 67.3 | anchor 0.10 imit 0.31 ent 0.45 v 1.575 | 25s
+[ppo] iter 95 train 59.1 | anchor 0.10 imit 0.30 ent 0.40 v 0.849 | 24s
+[ppo] iter 96 train 88.4 | anchor 0.10 imit 0.31 ent 0.45 v 2.670 | 25s
+[ppo] iter 97 train 60.8 | anchor 0.10 imit 0.30 ent 0.43 v 1.389 | 25s
+[ppo] iter 98 train 61.0 | anchor 0.10 imit 0.30 ent 0.41 v 0.597 | 28s
+[ppo] iter 99 train 56.1 | anchor 0.10 imit 0.30 ent 0.43 v 1.017 | 27s
+[ppo] iter 100 train 67.9 | anchor 0.10 imit 0.30 ent 0.39 v 0.853 | 56s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 101 train 56.3 | anchor 0.10 imit 0.30 ent 0.43 v 1.172 | 25s
+[ppo] iter 102 train 49.5 | anchor 0.10 imit 0.30 ent 0.41 v 0.901 | 28s
+[ppo] iter 103 train 76.6 | anchor 0.10 imit 0.30 ent 0.42 v 1.223 | 24s
+[ppo] iter 104 train 49.8 | anchor 0.10 imit 0.31 ent 0.43 v 1.128 | 25s
+[ppo] iter 105 train 79.8 | anchor 0.10 imit 0.31 ent 0.43 v 1.433 | 23s
+[ppo] iter 106 train 51.2 | anchor 0.10 imit 0.30 ent 0.40 v 1.136 | 27s
+[ppo] iter 107 train 77.1 | anchor 0.10 imit 0.30 ent 0.41 v 1.774 | 26s
+[ppo] iter 108 train 56.4 | anchor 0.10 imit 0.31 ent 0.43 v 0.950 | 26s
+[ppo] iter 109 train 66.1 | anchor 0.10 imit 0.30 ent 0.41 v 0.331 | 26s
+[ppo] iter 110 train 70.3 | anchor 0.10 imit 0.30 ent 0.41 v 1.721 | 59s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 111 train 78.9 | anchor 0.10 imit 0.31 ent 0.42 v 0.724 | 25s
+[ppo] iter 112 train 51.1 | anchor 0.10 imit 0.32 ent 0.47 v 0.564 | 24s
+[ppo] iter 113 train 69.6 | anchor 0.10 imit 0.31 ent 0.46 v 0.898 | 27s
+[ppo] iter 114 train 52.2 | anchor 0.10 imit 0.31 ent 0.43 v 1.170 | 25s
+[ppo] iter 115 train 73.3 | anchor 0.10 imit 0.30 ent 0.40 v 0.876 | 25s
+[ppo] iter 116 train 62.2 | anchor 0.10 imit 0.30 ent 0.39 v 1.199 | 26s
+[ppo] iter 117 train 63.6 | anchor 0.10 imit 0.30 ent 0.39 v 2.056 | 24s
+[ppo] iter 118 train 53.4 | anchor 0.10 imit 0.30 ent 0.37 v 0.582 | 26s
+[ppo] iter 119 train 61.1 | anchor 0.10 imit 0.30 ent 0.36 v 0.374 | 23s
+[ppo] iter 120 train 72.2 | anchor 0.10 imit 0.30 ent 0.38 v 1.253 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 121 train 56.6 | anchor 0.10 imit 0.30 ent 0.38 v 0.814 | 22s
+[ppo] iter 122 train 69.5 | anchor 0.10 imit 0.30 ent 0.38 v 2.120 | 25s
+[ppo] iter 123 train 58.7 | anchor 0.10 imit 0.30 ent 0.39 v 0.733 | 26s
+[ppo] iter 124 train 54.1 | anchor 0.10 imit 0.30 ent 0.42 v 0.834 | 25s
+[ppo] iter 125 train 59.8 | anchor 0.10 imit 0.30 ent 0.40 v 0.673 | 24s
+[ppo] iter 126 train 64.5 | anchor 0.10 imit 0.30 ent 0.40 v 1.188 | 27s
+[ppo] iter 127 train 73.8 | anchor 0.10 imit 0.30 ent 0.39 v 1.789 | 24s
+[ppo] iter 128 train 70.6 | anchor 0.10 imit 0.30 ent 0.38 v 1.094 | 25s
+[ppo] iter 129 train 58.2 | anchor 0.10 imit 0.30 ent 0.40 v 1.574 | 27s
+[ppo] iter 130 train 66.6 | anchor 0.10 imit 0.30 ent 0.40 v 0.979 | 61s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 131 train 56.2 | anchor 0.10 imit 0.30 ent 0.38 v 0.769 | 26s
+[ppo] iter 132 train 58.3 | anchor 0.10 imit 0.30 ent 0.36 v 1.815 | 25s
+[ppo] iter 133 train 51.8 | anchor 0.10 imit 0.30 ent 0.41 v 0.760 | 27s
+[ppo] iter 134 train 79.8 | anchor 0.10 imit 0.30 ent 0.38 v 1.101 | 25s
+[ppo] iter 135 train 48.2 | anchor 0.10 imit 0.30 ent 0.40 v 0.868 | 26s
+[ppo] iter 136 train 62.6 | anchor 0.10 imit 0.31 ent 0.42 v 0.993 | 23s
+[ppo] iter 137 train 49.1 | anchor 0.10 imit 0.31 ent 0.43 v 0.448 | 26s
+[ppo] iter 138 train 49.1 | anchor 0.10 imit 0.30 ent 0.41 v 1.090 | 25s
+[ppo] iter 139 train 78.1 | anchor 0.10 imit 0.31 ent 0.45 v 1.916 | 26s
+[ppo] iter 140 train 91.7 | anchor 0.10 imit 0.31 ent 0.43 v 1.319 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 141 train 68.4 | anchor 0.10 imit 0.31 ent 0.42 v 0.534 | 27s
+[ppo] iter 142 train 72.2 | anchor 0.10 imit 0.31 ent 0.44 v 0.875 | 27s
+[ppo] iter 143 train 69.4 | anchor 0.10 imit 0.32 ent 0.46 v 1.406 | 26s
+[ppo] iter 144 train 71.6 | anchor 0.10 imit 0.31 ent 0.44 v 1.343 | 26s
+[ppo] iter 145 train 54.5 | anchor 0.10 imit 0.31 ent 0.45 v 0.225 | 25s
+[ppo] iter 146 train 71.8 | anchor 0.10 imit 0.31 ent 0.46 v 2.726 | 25s
+[ppo] iter 147 train 74.4 | anchor 0.10 imit 0.32 ent 0.47 v 0.814 | 25s
+[ppo] iter 148 train 66.6 | anchor 0.10 imit 0.32 ent 0.48 v 0.980 | 26s
+[ppo] iter 149 train 57.1 | anchor 0.10 imit 0.31 ent 0.43 v 0.563 | 27s
+[ppo] iter 150 train 43.1 | anchor 0.10 imit 0.31 ent 0.44 v 1.030 | 60s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 151 train 61.9 | anchor 0.10 imit 0.32 ent 0.47 v 0.537 | 27s
+[ppo] iter 152 train 55.1 | anchor 0.10 imit 0.32 ent 0.48 v 1.117 | 25s
+[ppo] iter 153 train 44.9 | anchor 0.10 imit 0.32 ent 0.48 v 1.130 | 26s
+[ppo] iter 154 train 76.0 | anchor 0.10 imit 0.30 ent 0.41 v 2.189 | 25s
+[ppo] iter 155 train 60.4 | anchor 0.10 imit 0.30 ent 0.42 v 0.869 | 27s
+[ppo] iter 156 train 74.3 | anchor 0.10 imit 0.30 ent 0.42 v 0.883 | 25s
+[ppo] iter 157 train 54.1 | anchor 0.10 imit 0.30 ent 0.39 v 0.387 | 26s
+[ppo] iter 158 train 44.5 | anchor 0.10 imit 0.30 ent 0.37 v 0.713 | 29s
+[ppo] iter 159 train 59.9 | anchor 0.10 imit 0.30 ent 0.41 v 1.180 | 23s
+[ppo] iter 160 train 61.9 | anchor 0.10 imit 0.30 ent 0.40 v 0.399 | 58s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 161 train 64.4 | anchor 0.10 imit 0.30 ent 0.40 v 0.700 | 24s
+[ppo] iter 162 train 70.8 | anchor 0.10 imit 0.30 ent 0.40 v 0.921 | 27s
+[ppo] iter 163 train 52.2 | anchor 0.10 imit 0.30 ent 0.38 v 0.761 | 29s
+[ppo] iter 164 train 63.8 | anchor 0.10 imit 0.30 ent 0.39 v 1.139 | 23s
+[ppo] iter 165 train 70.0 | anchor 0.10 imit 0.30 ent 0.38 v 0.493 | 25s
+[ppo] iter 166 train 54.2 | anchor 0.10 imit 0.30 ent 0.39 v 0.319 | 27s
+[ppo] iter 167 train 57.4 | anchor 0.10 imit 0.30 ent 0.41 v 1.785 | 25s
+[ppo] iter 168 train 75.5 | anchor 0.10 imit 0.30 ent 0.40 v 2.030 | 25s
+[ppo] iter 169 train 76.5 | anchor 0.10 imit 0.30 ent 0.37 v 1.001 | 25s
+[ppo] iter 170 train 77.9 | anchor 0.10 imit 0.30 ent 0.39 v 1.720 | 59s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 171 train 78.6 | anchor 0.10 imit 0.30 ent 0.43 v 1.012 | 22s
+[ppo] iter 172 train 67.9 | anchor 0.10 imit 0.30 ent 0.43 v 0.490 | 25s
+[ppo] iter 173 train 69.1 | anchor 0.10 imit 0.30 ent 0.39 v 1.216 | 23s
+[ppo] iter 174 train 68.6 | anchor 0.10 imit 0.30 ent 0.38 v 1.423 | 24s
+[ppo] iter 175 train 64.2 | anchor 0.10 imit 0.29 ent 0.36 v 1.696 | 25s
+[ppo] iter 176 train 53.1 | anchor 0.10 imit 0.29 ent 0.33 v 0.747 | 27s
+[ppo] iter 177 train 70.4 | anchor 0.10 imit 0.30 ent 0.36 v 1.167 | 25s
+[ppo] iter 178 train 49.2 | anchor 0.10 imit 0.29 ent 0.33 v 1.497 | 29s
+[ppo] iter 179 train 52.1 | anchor 0.10 imit 0.29 ent 0.30 v 0.965 | 27s
+[ppo] iter 180 train 63.6 | anchor 0.10 imit 0.29 ent 0.34 v 1.024 | 59s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 181 train 73.4 | anchor 0.10 imit 0.29 ent 0.33 v 0.320 | 27s
+[ppo] iter 182 train 80.4 | anchor 0.10 imit 0.29 ent 0.34 v 1.588 | 25s
+[ppo] iter 183 train 60.3 | anchor 0.10 imit 0.29 ent 0.33 v 0.654 | 28s
+[ppo] iter 184 train 60.1 | anchor 0.10 imit 0.29 ent 0.32 v 0.907 | 26s
+[ppo] iter 185 train 49.8 | anchor 0.10 imit 0.30 ent 0.36 v 1.245 | 26s
+[ppo] iter 186 train 77.2 | anchor 0.10 imit 0.29 ent 0.33 v 1.387 | 27s
+[ppo] iter 187 train 75.4 | anchor 0.10 imit 0.30 ent 0.37 v 0.937 | 25s
+[ppo] iter 188 train 61.2 | anchor 0.10 imit 0.29 ent 0.34 v 2.558 | 25s
+[ppo] iter 189 train 68.4 | anchor 0.10 imit 0.29 ent 0.31 v 0.920 | 26s
+[ppo] iter 190 train 45.6 | anchor 0.10 imit 0.29 ent 0.31 v 0.469 | 63s | eval 62.7 vs greedy_break 62.7 (best 62.7)
+[ppo] iter 191 train 46.1 | anchor 0.10 imit 0.30 ent 0.36 v 0.295 | 28s
+[ppo] iter 192 train 59.2 | anchor 0.10 imit 0.30 ent 0.38 v 1.577 | 29s
+[ppo] iter 193 train 64.8 | anchor 0.10 imit 0.30 ent 0.36 v 0.551 | 25s
+[ppo] iter 194 train 60.0 | anchor 0.10 imit 0.30 ent 0.40 v 0.941 | 25s
+[ppo] iter 195 train 65.6 | anchor 0.10 imit 0.30 ent 0.36 v 1.861 | 25s
+[ppo] iter 196 train 79.7 | anchor 0.10 imit 0.30 ent 0.35 v 0.909 | 25s
+[ppo] iter 197 train 56.0 | anchor 0.10 imit 0.29 ent 0.33 v 0.599 | 26s
+[ppo] iter 198 train 52.4 | anchor 0.10 imit 0.29 ent 0.34 v 1.085 | 26s
+[ppo] iter 199 train 59.0 | anchor 0.10 imit 0.29 ent 0.34 v 1.027 | 25s
+[ppo] iter 200 train 91.1 | anchor 0.10 imit 0.29 ent 0.33 v 2.202 | 57s | eval 62.7 vs greedy_break 62.7 (best 62.7)
