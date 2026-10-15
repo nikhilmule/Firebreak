@@ -1,0 +1,16 @@
+6 drones vs 18 fires, wind 8.0 m/s, 10 maps, fire model: simfire
+
+controller              homes lost  value saved  ha burnt  retarget/min  breaks  ms/decision
+greedy_break           74.9 ± 25.2        75.3%      1086           0.8   204.2         0.18
+ga_break               68.5 ± 29.8        78.8%      1070           0.5   190.1         9.16
+pso_break              61.8 ± 31.2        79.9%      1068           0.8   215.9         7.96
+nearest_break         166.8 ± 49.4        42.9%      1051           1.0   264.8         0.13
+greedy_c_stable       125.0 ± 31.1        60.8%      1083           1.7     0.0         0.23
+none                  206.2 ± 45.4        30.2%      1160           0.0     0.0         0.00
+
+paired vs greedy_break (negative = fewer homes lost than greedy_break):
+  ga_break             -6.4 homes  (95% CI -20.3 to +7.5), better on 7, worse on 3 of 10 maps -> no clear difference
+  pso_break           -13.1 homes  (95% CI -28.1 to +1.9), better on 8, worse on 2 of 10 maps -> no clear difference
+  nearest_break       +91.9 homes  (95% CI +67.8 to +116.0), better on 0, worse on 10 of 10 maps -> clearly worse
+  greedy_c_stable     +50.1 homes  (95% CI +32.8 to +67.4), better on 0, worse on 10 of 10 maps -> clearly worse
+  none               +131.3 homes  (95% CI +108.6 to +154.0), better on 0, worse on 10 of 10 maps -> clearly worse

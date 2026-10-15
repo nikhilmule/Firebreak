@@ -1,0 +1,211 @@
+axis,knob,value,controller,homes_lost,sd,diff_vs_ref,ci_lo,ci_hi,verdict,n
+Fleet size,drones,2,greedy_break,122.4,36.38,0.0,0.0,0.0,ref,30
+Fleet size,drones,2,ga_break,126.03,34.57,3.63,-2.76,10.03,tie,30
+Fleet size,drones,2,pso_break,126.17,33.45,3.77,-2.68,10.21,tie,30
+Fleet size,drones,2,nearest_break,165.67,45.72,43.27,32.33,54.2,worse,30
+Fleet size,drones,2,greedy_c_stable,155.77,40.9,33.37,22.11,44.62,worse,30
+Fleet size,drones,2,none,180.47,44.2,58.07,45.14,70.99,worse,30
+Fleet size,drones,4,greedy_break,99.33,32.42,0.0,0.0,0.0,ref,30
+Fleet size,drones,4,ga_break,94.27,33.66,-5.07,-15.21,5.07,tie,30
+Fleet size,drones,4,pso_break,93.7,34.23,-5.63,-16.82,5.55,tie,30
+Fleet size,drones,4,nearest_break,156.67,49.87,57.33,42.92,71.74,worse,30
+Fleet size,drones,4,greedy_c_stable,126.4,42.63,27.07,15.2,38.93,worse,30
+Fleet size,drones,4,none,180.47,44.2,81.13,69.1,93.16,worse,30
+Fleet size,drones,6,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Fleet size,drones,6,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Fleet size,drones,6,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Fleet size,drones,6,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Fleet size,drones,6,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Fleet size,drones,6,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Fleet size,drones,9,greedy_break,49.1,28.75,0.0,0.0,0.0,ref,30
+Fleet size,drones,9,ga_break,54.33,29.39,5.23,-4.49,14.96,tie,30
+Fleet size,drones,9,pso_break,50.53,30.42,1.43,-7.55,10.42,tie,30
+Fleet size,drones,9,nearest_break,143.77,35.74,94.67,83.18,106.15,worse,30
+Fleet size,drones,9,greedy_c_stable,90.33,38.44,41.23,30.15,52.32,worse,30
+Fleet size,drones,9,none,180.47,44.2,131.37,114.9,147.84,worse,30
+Fleet size,drones,12,greedy_break,37.4,25.74,0.0,0.0,0.0,ref,30
+Fleet size,drones,12,ga_break,45.4,21.59,8.0,0.39,15.61,worse,30
+Fleet size,drones,12,pso_break,41.57,25.81,4.17,-1.46,9.79,tie,30
+Fleet size,drones,12,nearest_break,145.2,40.81,107.8,93.74,121.86,worse,30
+Fleet size,drones,12,greedy_c_stable,79.47,30.99,42.07,31.65,52.48,worse,30
+Fleet size,drones,12,none,180.47,44.2,143.07,128.39,157.74,worse,30
+Number of fires,fires,6,greedy_break,74.77,35.78,0.0,0.0,0.0,ref,30
+Number of fires,fires,6,ga_break,71.83,29.52,-2.93,-12.85,6.98,tie,30
+Number of fires,fires,6,pso_break,71.3,34.44,-3.47,-14.22,7.28,tie,30
+Number of fires,fires,6,nearest_break,153.27,37.64,78.5,68.31,88.69,worse,30
+Number of fires,fires,6,greedy_c_stable,119.4,31.2,44.63,32.69,56.58,worse,30
+Number of fires,fires,6,none,183.3,39.07,108.53,93.65,123.41,worse,30
+Number of fires,fires,12,greedy_break,78.93,32.15,0.0,0.0,0.0,ref,30
+Number of fires,fires,12,ga_break,74.1,27.15,-4.83,-13.19,3.52,tie,30
+Number of fires,fires,12,pso_break,78.97,32.67,0.03,-15.34,15.4,tie,30
+Number of fires,fires,12,nearest_break,160.67,38.8,81.73,65.26,98.21,worse,30
+Number of fires,fires,12,greedy_c_stable,113.13,35.38,34.2,22.43,45.97,worse,30
+Number of fires,fires,12,none,181.5,38.79,102.57,87.73,117.4,worse,30
+Number of fires,fires,18,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Number of fires,fires,18,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Number of fires,fires,18,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Number of fires,fires,18,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Number of fires,fires,18,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Number of fires,fires,18,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Number of fires,fires,30,greedy_break,76.93,24.8,0.0,0.0,0.0,ref,30
+Number of fires,fires,30,ga_break,69.1,25.09,-7.83,-16.05,0.38,tie,30
+Number of fires,fires,30,pso_break,79.0,30.01,2.07,-7.02,11.15,tie,30
+Number of fires,fires,30,nearest_break,148.13,31.9,71.2,61.31,81.09,worse,30
+Number of fires,fires,30,greedy_c_stable,104.5,33.43,27.57,16.49,38.64,worse,30
+Number of fires,fires,30,none,179.07,34.72,102.13,90.69,113.58,worse,30
+Number of fires,fires,40,greedy_break,74.6,35.22,0.0,0.0,0.0,ref,30
+Number of fires,fires,40,ga_break,75.5,30.86,0.9,-6.8,8.6,tie,30
+Number of fires,fires,40,pso_break,74.47,31.08,-0.13,-8.86,8.6,tie,30
+Number of fires,fires,40,nearest_break,141.33,43.72,66.73,52.35,81.11,worse,30
+Number of fires,fires,40,greedy_c_stable,111.23,40.6,36.63,23.49,49.78,worse,30
+Number of fires,fires,40,none,185.37,34.24,110.77,98.68,122.85,worse,30
+Wind speed,wind,2.0,greedy_break,13.43,16.86,0.0,0.0,0.0,ref,30
+Wind speed,wind,2.0,ga_break,14.63,17.0,1.2,-5.06,7.46,tie,30
+Wind speed,wind,2.0,pso_break,11.83,12.92,-1.6,-8.63,5.43,tie,30
+Wind speed,wind,2.0,nearest_break,68.8,47.89,55.37,36.39,74.34,worse,30
+Wind speed,wind,2.0,greedy_c_stable,21.0,19.02,7.57,0.58,14.56,worse,30
+Wind speed,wind,2.0,none,87.93,44.57,74.5,57.08,91.92,worse,30
+Wind speed,wind,5.0,greedy_break,41.17,20.15,0.0,0.0,0.0,ref,30
+Wind speed,wind,5.0,ga_break,47.7,28.43,6.53,-2.88,15.94,tie,30
+Wind speed,wind,5.0,pso_break,54.5,25.82,13.33,4.21,22.46,worse,30
+Wind speed,wind,5.0,nearest_break,134.77,40.76,93.6,79.44,107.76,worse,30
+Wind speed,wind,5.0,greedy_c_stable,79.2,41.63,38.03,26.46,49.61,worse,30
+Wind speed,wind,5.0,none,161.9,41.46,120.73,105.34,136.13,worse,30
+Wind speed,wind,8.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Wind speed,wind,8.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Wind speed,wind,8.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Wind speed,wind,8.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Wind speed,wind,8.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Wind speed,wind,8.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Wind speed,wind,11.0,greedy_break,95.37,30.9,0.0,0.0,0.0,ref,30
+Wind speed,wind,11.0,ga_break,98.03,28.22,2.67,-5.4,10.73,tie,30
+Wind speed,wind,11.0,pso_break,94.47,30.81,-0.9,-12.4,10.6,tie,30
+Wind speed,wind,11.0,nearest_break,158.8,37.08,63.43,52.46,74.41,worse,30
+Wind speed,wind,11.0,greedy_c_stable,130.83,37.41,35.47,25.73,45.21,worse,30
+Wind speed,wind,11.0,none,198.57,38.14,103.2,88.24,118.16,worse,30
+Wind speed,wind,14.0,greedy_break,107.8,26.54,0.0,0.0,0.0,ref,30
+Wind speed,wind,14.0,ga_break,109.07,29.88,1.27,-4.66,7.19,tie,30
+Wind speed,wind,14.0,pso_break,107.97,32.06,0.17,-6.97,7.31,tie,30
+Wind speed,wind,14.0,nearest_break,166.27,34.11,58.47,46.51,70.42,worse,30
+Wind speed,wind,14.0,greedy_c_stable,158.67,44.57,50.87,38.5,63.23,worse,30
+Wind speed,wind,14.0,none,205.57,40.46,97.77,84.49,111.04,worse,30
+Sensor noise,obs_noise,0.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Sensor noise,obs_noise,0.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Sensor noise,obs_noise,0.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Sensor noise,obs_noise,0.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Sensor noise,obs_noise,0.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Sensor noise,obs_noise,0.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Sensor noise,obs_noise,0.25,greedy_break,73.8,35.05,0.0,0.0,0.0,ref,30
+Sensor noise,obs_noise,0.25,ga_break,80.67,28.83,6.87,-3.91,17.64,tie,30
+Sensor noise,obs_noise,0.25,pso_break,77.3,39.09,3.5,-10.42,17.42,tie,30
+Sensor noise,obs_noise,0.25,nearest_break,148.93,46.42,75.13,59.35,90.92,worse,30
+Sensor noise,obs_noise,0.25,greedy_c_stable,109.97,41.09,36.17,21.98,50.36,worse,30
+Sensor noise,obs_noise,0.25,none,180.47,44.2,106.67,90.55,122.78,worse,30
+Sensor noise,obs_noise,0.5,greedy_break,86.17,33.51,0.0,0.0,0.0,ref,30
+Sensor noise,obs_noise,0.5,ga_break,83.07,36.73,-3.1,-16.57,10.37,tie,30
+Sensor noise,obs_noise,0.5,pso_break,82.1,34.92,-4.07,-15.99,7.86,tie,30
+Sensor noise,obs_noise,0.5,nearest_break,148.93,46.42,62.77,46.78,78.75,worse,30
+Sensor noise,obs_noise,0.5,greedy_c_stable,119.77,31.92,33.6,20.68,46.52,worse,30
+Sensor noise,obs_noise,0.5,none,180.47,44.2,94.3,81.41,107.19,worse,30
+Sensor noise,obs_noise,1.0,greedy_break,101.43,29.49,0.0,0.0,0.0,ref,30
+Sensor noise,obs_noise,1.0,ga_break,104.13,33.21,2.7,-7.49,12.89,tie,30
+Sensor noise,obs_noise,1.0,pso_break,93.9,27.52,-7.53,-16.45,1.38,tie,30
+Sensor noise,obs_noise,1.0,nearest_break,148.93,46.42,47.5,34.48,60.52,worse,30
+Sensor noise,obs_noise,1.0,greedy_c_stable,133.27,37.7,31.83,22.35,41.32,worse,30
+Sensor noise,obs_noise,1.0,none,180.47,44.2,79.03,67.11,90.96,worse,30
+Missed fires,miss_rate,0.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Missed fires,miss_rate,0.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Missed fires,miss_rate,0.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Missed fires,miss_rate,0.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Missed fires,miss_rate,0.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Missed fires,miss_rate,0.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Missed fires,miss_rate,0.15,greedy_break,72.47,32.61,0.0,0.0,0.0,ref,30
+Missed fires,miss_rate,0.15,ga_break,71.43,37.7,-1.03,-11.24,9.17,tie,30
+Missed fires,miss_rate,0.15,pso_break,76.93,35.79,4.47,-5.69,14.62,tie,30
+Missed fires,miss_rate,0.15,nearest_break,144.0,40.61,71.53,60.28,82.78,worse,30
+Missed fires,miss_rate,0.15,greedy_c_stable,113.73,36.19,41.27,31.42,51.12,worse,30
+Missed fires,miss_rate,0.15,none,180.47,44.2,108.0,93.36,122.64,worse,30
+Missed fires,miss_rate,0.3,greedy_break,74.27,30.43,0.0,0.0,0.0,ref,30
+Missed fires,miss_rate,0.3,ga_break,81.3,35.37,7.03,-1.72,15.78,tie,30
+Missed fires,miss_rate,0.3,pso_break,80.43,32.58,6.17,-2.32,14.65,tie,30
+Missed fires,miss_rate,0.3,nearest_break,154.9,41.32,80.63,68.04,93.23,worse,30
+Missed fires,miss_rate,0.3,greedy_c_stable,118.03,38.81,43.77,33.58,53.96,worse,30
+Missed fires,miss_rate,0.3,none,180.47,44.2,106.2,93.84,118.56,worse,30
+Missed fires,miss_rate,0.5,greedy_break,82.9,31.63,0.0,0.0,0.0,ref,30
+Missed fires,miss_rate,0.5,ga_break,75.03,29.85,-7.87,-16.46,0.73,tie,30
+Missed fires,miss_rate,0.5,pso_break,79.57,32.05,-3.33,-13.09,6.42,tie,30
+Missed fires,miss_rate,0.5,nearest_break,155.67,40.79,72.77,58.56,86.97,worse,30
+Missed fires,miss_rate,0.5,greedy_c_stable,123.93,40.26,41.03,27.51,54.56,worse,30
+Missed fires,miss_rate,0.5,none,180.47,44.2,97.57,81.35,113.78,worse,30
+Drone failures,fail_per_hour,0.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Drone failures,fail_per_hour,0.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Drone failures,fail_per_hour,0.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Drone failures,fail_per_hour,0.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Drone failures,fail_per_hour,0.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Drone failures,fail_per_hour,0.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Drone failures,fail_per_hour,2.0,greedy_break,74.7,32.16,0.0,0.0,0.0,ref,30
+Drone failures,fail_per_hour,2.0,ga_break,79.4,34.35,4.7,-6.28,15.68,tie,30
+Drone failures,fail_per_hour,2.0,pso_break,80.63,38.19,5.93,-7.43,19.3,tie,30
+Drone failures,fail_per_hour,2.0,nearest_break,150.93,46.83,76.23,61.65,90.82,worse,30
+Drone failures,fail_per_hour,2.0,greedy_c_stable,117.73,43.05,43.03,29.97,56.1,worse,30
+Drone failures,fail_per_hour,2.0,none,180.47,44.2,105.77,91.43,120.1,worse,30
+Drone failures,fail_per_hour,4.0,greedy_break,79.67,33.86,0.0,0.0,0.0,ref,30
+Drone failures,fail_per_hour,4.0,ga_break,87.6,38.04,7.93,-1.86,17.73,tie,30
+Drone failures,fail_per_hour,4.0,pso_break,89.0,38.65,9.33,-3.61,22.27,tie,30
+Drone failures,fail_per_hour,4.0,nearest_break,153.73,47.27,74.07,60.02,88.12,worse,30
+Drone failures,fail_per_hour,4.0,greedy_c_stable,122.7,48.44,43.03,29.91,56.15,worse,30
+Drone failures,fail_per_hour,4.0,none,180.47,44.2,100.8,87.38,114.22,worse,30
+Drone failures,fail_per_hour,8.0,greedy_break,86.33,36.65,0.0,0.0,0.0,ref,30
+Drone failures,fail_per_hour,8.0,ga_break,97.43,38.08,11.1,-0.78,22.98,tie,30
+Drone failures,fail_per_hour,8.0,pso_break,101.63,44.07,15.3,4.51,26.09,worse,30
+Drone failures,fail_per_hour,8.0,nearest_break,155.93,47.55,69.6,54.87,84.33,worse,30
+Drone failures,fail_per_hour,8.0,greedy_c_stable,134.87,43.15,48.53,38.29,58.78,worse,30
+Drone failures,fail_per_hour,8.0,none,180.47,44.2,94.13,80.34,107.93,worse,30
+Sensing range,sense_range,0.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Sensing range,sense_range,0.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Sensing range,sense_range,0.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Sensing range,sense_range,0.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Sensing range,sense_range,0.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Sensing range,sense_range,0.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Sensing range,sense_range,2000.0,greedy_break,79.9,36.31,0.0,0.0,0.0,ref,30
+Sensing range,sense_range,2000.0,ga_break,76.57,40.02,-3.33,-13.92,7.25,tie,30
+Sensing range,sense_range,2000.0,pso_break,77.03,34.53,-2.87,-12.64,6.9,tie,30
+Sensing range,sense_range,2000.0,nearest_break,141.93,44.41,62.03,44.59,79.48,worse,30
+Sensing range,sense_range,2000.0,greedy_c_stable,111.8,37.74,31.9,16.7,47.1,worse,30
+Sensing range,sense_range,2000.0,none,180.47,44.2,100.57,83.52,117.61,worse,30
+Sensing range,sense_range,1000.0,greedy_break,88.8,31.38,0.0,0.0,0.0,ref,30
+Sensing range,sense_range,1000.0,ga_break,87.0,32.55,-1.8,-7.95,4.35,tie,30
+Sensing range,sense_range,1000.0,pso_break,86.87,34.37,-1.93,-8.54,4.68,tie,30
+Sensing range,sense_range,1000.0,nearest_break,134.93,38.95,46.13,33.92,58.35,worse,30
+Sensing range,sense_range,1000.0,greedy_c_stable,128.03,43.09,39.23,25.44,53.03,worse,30
+Sensing range,sense_range,1000.0,none,180.47,44.2,91.67,79.2,104.13,worse,30
+Sensing range,sense_range,600.0,greedy_break,118.1,40.02,0.0,0.0,0.0,ref,30
+Sensing range,sense_range,600.0,ga_break,121.8,39.83,3.7,-1.21,8.61,tie,30
+Sensing range,sense_range,600.0,pso_break,117.97,39.36,-0.13,-5.8,5.53,tie,30
+Sensing range,sense_range,600.0,nearest_break,156.13,40.88,38.03,28.31,47.75,worse,30
+Sensing range,sense_range,600.0,greedy_c_stable,133.2,48.97,15.1,0.15,30.05,worse,30
+Sensing range,sense_range,600.0,none,180.47,44.2,62.37,50.18,74.56,worse,30
+Wind shift at 10 min,wind_shift_deg,0.0,greedy_break,69.83,34.12,0.0,0.0,0.0,ref,30
+Wind shift at 10 min,wind_shift_deg,0.0,ga_break,76.23,32.42,6.4,-4.5,17.3,tie,30
+Wind shift at 10 min,wind_shift_deg,0.0,pso_break,72.23,27.07,2.4,-8.13,12.93,tie,30
+Wind shift at 10 min,wind_shift_deg,0.0,nearest_break,148.93,46.42,79.1,63.61,94.59,worse,30
+Wind shift at 10 min,wind_shift_deg,0.0,greedy_c_stable,109.87,42.73,40.03,26.63,53.43,worse,30
+Wind shift at 10 min,wind_shift_deg,0.0,none,180.47,44.2,110.63,94.11,127.15,worse,30
+Wind shift at 10 min,wind_shift_deg,45.0,greedy_break,70.67,34.64,0.0,0.0,0.0,ref,30
+Wind shift at 10 min,wind_shift_deg,45.0,ga_break,77.33,31.92,6.67,-4.4,17.73,tie,30
+Wind shift at 10 min,wind_shift_deg,45.0,pso_break,72.47,27.0,1.8,-8.8,12.4,tie,30
+Wind shift at 10 min,wind_shift_deg,45.0,nearest_break,149.73,45.88,79.07,63.41,94.72,worse,30
+Wind shift at 10 min,wind_shift_deg,45.0,greedy_c_stable,109.9,42.75,39.23,25.55,52.92,worse,30
+Wind shift at 10 min,wind_shift_deg,45.0,none,181.17,44.39,110.5,93.44,127.56,worse,30
+Wind shift at 10 min,wind_shift_deg,90.0,greedy_break,72.2,36.17,0.0,0.0,0.0,ref,30
+Wind shift at 10 min,wind_shift_deg,90.0,ga_break,76.97,33.11,4.77,-7.31,16.85,tie,30
+Wind shift at 10 min,wind_shift_deg,90.0,pso_break,73.93,26.66,1.73,-9.47,12.94,tie,30
+Wind shift at 10 min,wind_shift_deg,90.0,nearest_break,151.23,46.28,79.03,63.11,94.96,worse,30
+Wind shift at 10 min,wind_shift_deg,90.0,greedy_c_stable,110.07,42.68,37.87,23.34,52.39,worse,30
+Wind shift at 10 min,wind_shift_deg,90.0,none,185.97,41.36,113.77,97.04,130.49,worse,30
+Wind shift at 10 min,wind_shift_deg,150.0,greedy_break,74.27,35.2,0.0,0.0,0.0,ref,30
+Wind shift at 10 min,wind_shift_deg,150.0,ga_break,78.63,32.67,4.37,-6.99,15.72,tie,30
+Wind shift at 10 min,wind_shift_deg,150.0,pso_break,74.03,26.64,-0.23,-11.27,10.81,tie,30
+Wind shift at 10 min,wind_shift_deg,150.0,nearest_break,158.4,46.58,84.13,69.04,99.23,worse,30
+Wind shift at 10 min,wind_shift_deg,150.0,greedy_c_stable,111.3,42.2,37.03,22.83,51.24,worse,30
+Wind shift at 10 min,wind_shift_deg,150.0,none,191.77,40.45,117.5,100.73,134.27,worse,30
