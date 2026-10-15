@@ -1,0 +1,464 @@
+<title>Firebreak 3D Replay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: replay stage — control strip on top, two 3D viewports side by side (stacked on phones), legend below */
+:root {
+  --bg: #EDF0EC; --surface: #FFFFFF; --ink: #17201C; --muted: #56635C; --line: #CBD4CE; --track: #E1E7E2;
+  --accent: #1F5FBF; --accent-ink: #FFFFFF; --fire: #C94F0A; --bad: #A8231B; --good: #2E7D4F; --teal: #0F8C7E;
+  --stage: #1A2127;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F1417; --surface: #161D21; --ink: #E3EBE7; --muted: #93A39C; --line: #27343B; --track: #222C31;
+  --accent: #63B8FF; --accent-ink: #0F1417; --fire: #FF8A2A; --bad: #FF6A5A; --good: #5CC98A; --teal: #3FD6C2;
+  --stage: #12181C; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0F1417; --surface: #161D21; --ink: #E3EBE7; --muted: #93A39C; --line: #27343B; --track: #222C31;
+  --accent: #63B8FF; --accent-ink: #0F1417; --fire: #FF8A2A; --bad: #FF6A5A; --good: #5CC98A; --teal: #3FD6C2;
+  --stage: #12181C; color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1440px; margin: 0 auto; padding-inline: 20px; padding-block: 18px 32px; display: flex; flex-direction: column; gap: 14px; }
+@media (max-width: 520px) { .wrap { padding-inline: 16px; } }
+header.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 24px; }
+h1 { margin: 0; font: 700 32px/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.01em; text-wrap: balance; }
+h1 span { color: var(--fire); }
+.sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; max-width: 70ch; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.btn { font: 500 13px var(--f-body); min-height: 40px; padding: 0 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); min-width: 84px; }
+.btn:hover { border-color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { font: 12px var(--f-data); border: 0; background: var(--surface); color: var(--muted); min-height: 40px; padding: 0 10px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.time { display: flex; align-items: center; gap: 10px; flex: 1 1 260px; min-width: 0; }
+.time input { flex: 1; min-width: 0; accent-color: var(--accent); }
+.clock { font: 500 15px var(--f-data); font-variant-numeric: tabular-nums; min-width: 5.5ch; }
+.lbl { font: 600 12px var(--f-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+label.chk { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; min-height: 40px; cursor: pointer; }
+.file { position: relative; }
+.file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 860px) { .views { grid-template-columns: minmax(0, 1fr); } }
+.view { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.vhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.vhead select { font: 600 16px var(--f-display); letter-spacing: 0.04em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); min-height: 40px; padding: 0 8px; max-width: 100%; }
+.stage { position: relative; aspect-ratio: 4 / 3; background: var(--stage); max-width: 100%; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.stat { padding: 8px 12px; display: flex; flex-direction: column; gap: 1px; border-right: 1px solid var(--line); min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat b { font: 500 20px var(--f-data); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat.bad b { color: var(--bad); } .stat.good b { color: var(--good); } .stat.teal b { color: var(--teal); }
+@media (max-width: 460px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stat:nth-child(2) { border-right: 0; } }
+.badge { font: 500 12px var(--f-data); padding: 3px 8px; border-radius: 99px; background: var(--track); color: var(--muted); white-space: nowrap; }
+.badge.win { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+.note { margin: 0; font-size: 13px; color: var(--muted); max-width: 80ch; }
+.err { color: var(--bad); font-size: 13px; }
+.overlay { position: absolute; left: 10px; top: 10px; font: 500 11px var(--f-data); color: #E3EBE7; background: rgb(10 14 16 / 0.55); padding: 4px 8px; border-radius: 4px; pointer-events: none; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Firebreak <span>3D Replay</span></h1>
+      <p class="sub" id="sub">Two controllers, the same map, the same ignitions. Drag to orbit, scroll to zoom, right-drag to pan.</p>
+    </div>
+    <div class="file">
+      <button class="btn" type="button" id="btn-load">Load replay (.json)</button>
+      <input type="file" id="in-file" accept=".json,application/json" aria-label="Load a replay file recorded with record.py">
+    </div>
+  </header>
+
+  <div class="bar">
+    <button class="btn primary" type="button" id="btn-play">Play</button>
+    <button class="btn" type="button" id="btn-restart">Restart</button>
+    <div class="seg" role="group" aria-label="Playback speed" id="speed"></div>
+    <div class="time">
+      <span class="clock" id="clock">00:00</span>
+      <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Fire clock">
+      <span class="clock" id="clock-end">00:00</span>
+    </div>
+    <label class="chk"><input type="checkbox" id="link" checked> Link cameras</label>
+  </div>
+  <p class="err" id="err" hidden></p>
+
+  <div class="views" id="views"></div>
+
+  <div class="legend" aria-hidden="true">
+    <span><i class="sw" style="background:#FF7A1A"></i>Burning</span>
+    <span><i class="sw" style="background:#2E2A27"></i>Burnt</span>
+    <span><i class="sw" style="background:#4C8DB8"></i>Doused</span>
+    <span><i class="sw" style="background:#33D1BE"></i>Firebreak strip</span>
+    <span><i class="sw" style="background:#D9D4C7"></i>Homes</span>
+    <span><i class="sw" style="background:#F2C94C"></i>School / clinic</span>
+    <span><i class="sw" style="background:#5A1F1A"></i>Lost</span>
+    <span><i class="sw" style="background:#7FC8FF;border-radius:50%"></i>Drone attacking</span>
+    <span><i class="sw" style="background:#33D1BE;border-radius:50%"></i>Drone laying a firebreak</span>
+  </div>
+  <p class="note" id="about"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const SAMPLE = /*REPLAY*/null;
+</script>
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NAMES = { none: 'No fleet', nearest: 'Greedy · nearest', greedy_c: 'Greedy · value at risk', greedy_c_stable: 'Greedy · stable',
+    greedy_break: 'Greedy + firebreaks', ga: 'Genetic algorithm', pso: 'Particle swarm', ga_stable: 'GA · stable', pso_stable: 'PSO · stable', gnn_policy: 'GNN policy (RL)' };
+  const nice = n => NAMES[n] || (n.startsWith('gnn_policy') ? 'GNN policy (RL)' + (n.includes(':') ? ' · stick ' + n.split(':')[1] : '') : n);
+  const clock = t => `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+
+  // scene palette: the stage keeps one dusk look in both page themes
+  const C = {
+    grass: 0x55704A, forest: 0x3B5A3A, tree: 0x2F5A34, water: 0x2D6E9E, road: 0x6B6F6C, house: 0xD9D4C7, site: 0xF2C94C,
+    burning: 0xFF7A1A, burnt: 0x2E2A27, lost: 0x5A1F1A, wet: 0x4C8DB8, brk: 0x33D1BE, flame: 0xFF8A2A,
+    droneAttack: 0x7FC8FF, droneBreak: 0x33D1BE, sky: 0x1A2127,
+  };
+  const HEIGHT = [0.12, 0.2, 0.24, 0.9, 0.04, 0.1, 1.4];      // by fuel type
+  const BASECOL = [C.grass, C.grass, C.forest, C.house, C.water, C.road, C.site];
+
+  let data = null, views = [], T = 0, Tend = 0, playing = false, speed = 30, lastNow = performance.now();
+  let syncing = false;
+
+  // --------------------------------------------------------------- views
+  function buildView(slot, runIndex) {
+    const el = document.createElement('section');
+    el.className = 'view';
+    el.innerHTML = `<div class="vhead"><select aria-label="Controller for view ${slot + 1}"></select><span class="badge" hidden></span></div>
+      <div class="stage"><div class="overlay"></div></div>
+      <div class="stats"><div class="stat bad"><b>0</b><span>Homes lost</span></div><div class="stat good"><b>100%</b><span>Value saved</span></div>
+      <div class="stat"><b>0</b><span>Hectares burnt</span></div><div class="stat teal"><b>0</b><span>Firebreaks</span></div></div>`;
+    $('#views').appendChild(el);
+    const sel = el.querySelector('select');
+    sel.innerHTML = data.runs.map((r, i) => `<option value="${i}">${nice(r.controller)}</option>`).join('');
+    sel.value = String(runIndex);
+    const stage = el.querySelector('.stage');
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+    renderer.setClearColor(C.sky);
+    stage.prepend(renderer.domElement);
+    renderer.domElement.setAttribute('aria-label', '3D view of the fire, town and drones');
+    const camera = new THREE.PerspectiveCamera(42, 4 / 3, 0.5, 600);
+    camera.position.set(0, 58, 84);
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0, -4);
+    controls.enableDamping = true;
+    controls.maxPolarAngle = Math.PI * 0.47;
+    controls.minDistance = 15; controls.maxDistance = 220;
+    const v = { el, sel, stage, renderer, camera, controls, slot, scene: null, run: null, stats: el.querySelectorAll('.stat b'),
+      badge: el.querySelector('.badge'), overlay: el.querySelector('.overlay') };
+    controls.addEventListener('change', () => syncCams(v));
+    sel.addEventListener('change', () => { setRun(v, +sel.value); updateBadges(); });
+    new ResizeObserver(() => resize(v)).observe(stage);
+    setRun(v, runIndex);
+    resize(v);
+    return v;
+  }
+
+  function resize(v) {
+    const w = v.stage.clientWidth, h = v.stage.clientHeight;
+    if (!w || !h) return;
+    v.renderer.setSize(w, h, false);
+    v.camera.aspect = w / h;
+    v.camera.updateProjectionMatrix();
+  }
+
+  function syncCams(src) {
+    if (syncing || !$('#link').checked) return;
+    syncing = true;
+    for (const v of views) if (v !== src) {
+      v.camera.position.copy(src.camera.position);
+      v.controls.target.copy(src.controls.target);
+      v.controls.update();
+    }
+    syncing = false;
+  }
+
+  // build a scene for one run (terrain, trees, flames, drones)
+  function setRun(v, idx) {
+    const N = data.meta.N, fuel = data.fuel, half = N / 2;
+    const run = data.runs[idx];
+    v.run = run;
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(C.sky, 140, 320);
+    scene.add(new THREE.HemisphereLight(0xCFE3FF, 0x2A2A22, 0.85));
+    const sun = new THREE.DirectionalLight(0xFFE2B8, 0.75);
+    sun.position.set(-40, 80, 30);
+    scene.add(sun);
+
+    // ground blocks, one per cell
+    const geo = new THREE.BoxGeometry(1, 1, 1);
+    const ground = new THREE.InstancedMesh(geo, new THREE.MeshLambertMaterial(), N * N);
+    // trees on forest cells
+    const forestCells = [];
+    for (let i = 0; i < N * N; i++) if (fuel[i] === 2) forestCells.push(i);
+    const trees = new THREE.InstancedMesh(new THREE.ConeGeometry(0.42, 1.1, 5), new THREE.MeshLambertMaterial(), forestCells.length);
+    const treeOf = new Int32Array(N * N).fill(-1);
+    forestCells.forEach((c, k) => { treeOf[c] = k; });
+    // flames (pool)
+    const flames = new THREE.InstancedMesh(new THREE.ConeGeometry(0.34, 1, 5),
+      new THREE.MeshBasicMaterial({ color: C.flame, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false }), 5000);
+    flames.count = 0;
+    scene.add(ground, trees, flames);
+
+    // base pad and lake label markers
+    const pad = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 2.6, 0.2, 24), new THREE.MeshLambertMaterial({ color: 0x9AA3A6 }));
+    pad.position.set(data.meta.base[0] - half + 0.5, 0.2, data.meta.base[1] - half + 0.5);
+    scene.add(pad);
+
+    // drones
+    const drones = [];
+    const nd = run.frames[0].d.length / 7;
+    for (let k = 0; k < nd; k++) {
+      const g = new THREE.Group();
+      g.scale.setScalar(1.5);
+      const bodyMat = new THREE.MeshLambertMaterial({ color: C.droneAttack, emissive: 0x112233 });
+      const body = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.22, 0.9), bodyMat);
+      g.add(body);
+      const rotors = [];
+      for (const [rx, rz] of [[-0.7, -0.7], [0.7, -0.7], [-0.7, 0.7], [0.7, 0.7]]) {
+        const r = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.04, 10), new THREE.MeshBasicMaterial({ color: 0xDDE7EE, transparent: true, opacity: 0.45 }));
+        r.position.set(rx, 0.16, rz);
+        g.add(r); rotors.push(r);
+      }
+      const lineGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
+      const line = new THREE.Line(lineGeo, new THREE.LineDashedMaterial({ color: C.droneAttack, dashSize: 0.8, gapSize: 0.6, transparent: true, opacity: 0.8 }));
+      scene.add(g, line);
+      drones.push({ g, bodyMat, rotors, line });
+    }
+    // water drop particles (pool)
+    const dropGeo = new THREE.BufferGeometry();
+    const DP = 1500;
+    dropGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(DP * 3), 3));
+    dropGeo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(DP * 3), 3));
+    const drops = new THREE.Points(dropGeo, new THREE.PointsMaterial({ size: 0.45, vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false }));
+    scene.add(drops);
+
+    if (v.scene) v.scene.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) o.material.dispose(); });
+    Object.assign(v, { scene, ground, trees, treeOf, forestCells, flames, drones, drops, dropParts: [], grid: new Int8Array(N * N), applied: -1,
+      burning: new Set(), events: run.events.slice().sort((a, b) => a[0] - b[0]), evCursor: 0,
+      breakTimes: run.events.filter(e => e[3] === 1).map(e => e[0]).sort((a, b) => a - b) });
+    paintAll(v);
+    updateBadges();
+  }
+
+  const tmpM = new THREE.Matrix4(), tmpC = new THREE.Color(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), ps = new THREE.Vector3();
+  function hash(i) { let x = Math.imul(i ^ 0x9E3779B9, 0x85EBCA6B); x ^= x >>> 13; return ((x >>> 0) % 1000) / 1000; }
+
+  function paintCell(v, i) {
+    const N = data.meta.N, half = N / 2, f = data.fuel[i], st = v.grid[i];
+    let h = HEIGHT[f], col = BASECOL[f];
+    const valuable = f === 3 || f === 6;
+    if (st === 1) col = valuable ? 0xC2341F : C.burning;
+    else if (st === 2) { col = valuable ? C.lost : C.burnt; if (valuable) h = 0.3; }
+    else if (st === 3) col = C.wet;
+    else if (st === 4) col = C.brk;
+    const x = i % N, z = (i / N) | 0;
+    ps.set(x - half + 0.5, h / 2, z - half + 0.5);
+    sc.set(valuable ? 0.8 : 1, h, valuable ? 0.8 : 1);
+    tmpM.compose(ps, q.identity(), sc);
+    v.ground.setMatrixAt(i, tmpM);
+    v.ground.setColorAt(i, tmpC.setHex(col));
+    const k = v.treeOf[i];
+    if (k >= 0) {
+      const s = st === 2 ? 0 : 0.75 + hash(i) * 0.5;
+      ps.set(x - half + 0.5 + (hash(i + 7) - 0.5) * 0.3, h + 0.5 * s, z - half + 0.5 + (hash(i + 3) - 0.5) * 0.3);
+      sc.set(s, s, s);
+      tmpM.compose(ps, q.identity(), sc);
+      v.trees.setMatrixAt(k, tmpM);
+      v.trees.setColorAt(k, tmpC.setHex(st === 1 ? 0xB8501C : st === 4 ? 0x2A7F70 : st === 3 ? 0x2F5F66 : C.tree));
+    }
+    if (st === 1) v.burning.add(i); else v.burning.delete(i);
+  }
+  function paintAll(v) {
+    for (let i = 0; i < v.grid.length; i++) paintCell(v, i);
+    v.ground.instanceMatrix.needsUpdate = true; v.ground.instanceColor.needsUpdate = true;
+    v.trees.instanceMatrix.needsUpdate = true; if (v.trees.instanceColor) v.trees.instanceColor.needsUpdate = true;
+  }
+
+  // apply state changes up to frame f
+  function seekFrame(v, f) {
+    const fr = v.run.frames;
+    f = Math.min(f, fr.length - 1);
+    if (f === v.applied) return;
+    const dirty = new Set();
+    if (f < v.applied) { v.grid.fill(0); v.burning.clear(); v.applied = -1; for (let i = 0; i < v.grid.length; i++) dirty.add(i); }
+    for (let k = v.applied + 1; k <= f; k++) {
+      const ch = fr[k].ch;
+      for (let j = 0; j < ch.length; j += 2) { v.grid[ch[j]] = ch[j + 1]; dirty.add(ch[j]); }
+    }
+    v.applied = f;
+    for (const i of dirty) paintCell(v, i);
+    v.ground.instanceMatrix.needsUpdate = true; v.ground.instanceColor.needsUpdate = true;
+    v.trees.instanceMatrix.needsUpdate = true; if (v.trees.instanceColor) v.trees.instanceColor.needsUpdate = true;
+  }
+
+  function frameAt(v, t) {
+    const every = data.meta.every, fr = v.run.frames;
+    let f = Math.min(fr.length - 1, Math.floor(t / every));
+    while (f > 0 && fr[f].t > t) f--;
+    return f;
+  }
+
+  function updateView(v, t, now, dtReal) {
+    const N = data.meta.N, half = N / 2, cell = data.meta.cell, fr = v.run.frames;
+    const f = frameAt(v, t);
+    seekFrame(v, f);
+    const A = fr[f], B = fr[Math.min(fr.length - 1, f + 1)];
+    const span = Math.max(1, B.t - A.t), a = Math.min(1, Math.max(0, (t - A.t) / span));
+    // drones
+    v.drones.forEach((dr, k) => {
+      const o = k * 7;
+      const x = (A.d[o] + (B.d[o] - A.d[o]) * a) / cell - half, z = (A.d[o + 1] + (B.d[o + 1] - A.d[o + 1]) * a) / cell - half;
+      const mode = A.d[o + 2], task = A.d[o + 4];
+      const lost = mode === 5;
+      dr.g.position.set(x, lost ? 0.3 : 4 + Math.sin(now / 400 + k) * 0.15, z);
+      const col = task ? C.droneBreak : C.droneAttack;
+      dr.bodyMat.color.setHex(lost ? 0x555555 : col);
+      dr.rotors.forEach((r, i) => { r.rotation.y += (i % 2 ? 1 : -1) * dtReal * 40; });
+      const ax = A.d[o + 5], ay = A.d[o + 6];
+      const pos = dr.line.geometry.attributes.position;
+      if (ax >= 0 && !lost) {
+        pos.setXYZ(0, x, 3.8, z); pos.setXYZ(1, ax / cell - half, 0.4, ay / cell - half);
+        pos.needsUpdate = true; dr.line.computeLineDistances(); dr.line.visible = true;
+        dr.line.material.color.setHex(col);
+      } else dr.line.visible = false;
+    });
+    // flames
+    let n = 0;
+    for (const i of v.burning) {
+      if (n >= 5000) break;
+      const x = i % N, z = (i / N) | 0, f0 = data.fuel[i];
+      const flick = 0.55 + 0.5 * Math.abs(Math.sin(now / 160 + hash(i) * 20)) + (f0 === 2 ? 0.5 : 0);
+      ps.set(x - half + 0.5, HEIGHT[f0] + flick * 0.5, z - half + 0.5);
+      sc.set(0.9, flick, 0.9);
+      tmpM.compose(ps, q.identity(), sc);
+      v.flames.setMatrixAt(n++, tmpM);
+    }
+    v.flames.count = n;
+    v.flames.instanceMatrix.needsUpdate = true;
+    // water drops: spawn for events passed since last update
+    if (v.lastT === undefined || t < v.lastT) { v.evCursor = 0; while (v.evCursor < v.events.length && v.events[v.evCursor][0] <= t) v.evCursor++; v.dropParts = []; }
+    while (v.evCursor < v.events.length && v.events[v.evCursor][0] <= t) {
+      const e = v.events[v.evCursor++];
+      if (t - e[0] < 6) for (let p = 0; p < 40; p++) v.dropParts.push({ x: e[1] / cell - half + (Math.random() - 0.5) * (e[3] ? 4 : 1.6),
+        z: e[2] / cell - half + (Math.random() - 0.5) * (e[3] ? 4 : 1.6), y: 3.8 + Math.random() * 0.4, vy: -2 - Math.random() * 3, life: 1.4, brk: e[3] });
+    }
+    v.lastT = t;
+    const pos = v.drops.geometry.attributes.position, colA = v.drops.geometry.attributes.color;
+    let m = 0;
+    v.dropParts = v.dropParts.filter(p => (p.life -= dtReal) > 0 && p.y > 0);
+    for (const p of v.dropParts) {
+      if (m >= 1500) break;
+      p.vy -= 9 * dtReal; p.y += p.vy * dtReal;
+      pos.setXYZ(m, p.x, p.y, p.z);
+      tmpC.setHex(p.brk ? 0x5FF0DC : 0x9FD4FF); colA.setXYZ(m, tmpC.r, tmpC.g, tmpC.b);
+      m++;
+    }
+    v.drops.geometry.setDrawRange(0, m);
+    pos.needsUpdate = true; colA.needsUpdate = true;
+    // stats
+    const s = A.s;
+    v.stats[0].textContent = `${s[0]}/${data.meta.homes}`;
+    v.stats[1].textContent = s[1].toFixed(0) + '%';
+    v.stats[2].textContent = s[2];
+    let lo = 0, hi = v.breakTimes.length;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (v.breakTimes[mid] <= t) lo = mid + 1; else hi = mid; }
+    v.stats[3].textContent = lo;
+    v.overlay.textContent = `${v.burning.size} cells burning · wind ${data.meta.wind} m/s`;
+    v.controls.update();
+    v.renderer.render(v.scene, v.camera);
+  }
+
+  function updateBadges() {
+    if (views.length < 2) return;
+    const lost = views.map(v => v.run.summary.homes_lost);
+    views.forEach((v, i) => {
+      const other = lost[1 - i];
+      const diff = other - lost[i];
+      v.badge.hidden = false;
+      v.badge.className = 'badge' + (diff > 0 ? ' win' : '');
+      v.badge.textContent = diff > 0 ? `By the end: ${diff} fewer homes lost` : diff < 0 ? `By the end: ${-diff} more homes lost` : 'By the end: same homes lost';
+    });
+  }
+
+  // ------------------------------------------------------------- playback
+  const speeds = [10, 30, 60, 120];
+  $('#speed').innerHTML = speeds.map(s => `<button type="button" data-v="${s}" aria-pressed="${s === speed}">${s}×</button>`).join('');
+  $('#speed').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    speed = +b.dataset.v;
+    $('#speed').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  });
+  $('#btn-play').addEventListener('click', () => { if (T >= Tend) T = 0; playing = !playing; syncUI(); });
+  $('#btn-restart').addEventListener('click', () => { T = 0; playing = !reduced; syncUI(); });
+  $('#scrub').addEventListener('input', e => { T = +e.target.value; syncUI(); });
+  $('#link').addEventListener('change', () => { if ($('#link').checked && views[0]) syncCams(views[0]); });
+  function syncUI() {
+    $('#btn-play').textContent = playing ? 'Pause' : T >= Tend ? 'Replay' : 'Play';
+    $('#scrub').value = String(Math.round(T));
+    $('#clock').textContent = clock(T);
+  }
+
+  function loop(now) {
+    const dt = Math.min(0.1, (now - lastNow) / 1000); lastNow = now;
+    if (data) {
+      if (playing) { T += dt * speed; if (T >= Tend) { T = Tend; playing = false; } syncUI(); }
+      for (const v of views) updateView(v, T, now, dt);
+    }
+    requestAnimationFrame(loop);
+  }
+
+  // ---------------------------------------------------------------- load
+  function load(d, label) {
+    if (!d || !d.meta || !Array.isArray(d.runs) || !d.runs.length || !d.meta.fuel) throw new Error('This file is not a Firebreak replay. Record one with scripts/record.py.');
+    d.fuel = Uint8Array.from(d.meta.fuel, ch => ch.charCodeAt(0) - 48);
+    data = d;
+    for (const v of views) { v.renderer.dispose(); }
+    $('#views').innerHTML = '';
+    views = [buildView(0, 0)];
+    if (d.runs.length > 1) views.push(buildView(1, 1));
+    Tend = Math.max(...d.runs.map(r => r.frames.at(-1).t));
+    $('#scrub').max = String(Tend);
+    $('#clock-end').textContent = clock(Tend);
+    T = 0; playing = !reduced;
+    const m = d.meta;
+    $('#about').textContent = `${label} · map seed ${m.seed} · ${m.drones} drones vs ${m.fires} spot fires · wind ${m.wind} m/s · ${m.homes} homes · one grid cell = ${m.cell} m.`;
+    updateBadges(); syncUI();
+  }
+  $('#in-file').addEventListener('change', e => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const fr = new FileReader();
+    fr.onload = () => {
+      try { load(JSON.parse(fr.result), file.name); $('#err').hidden = true; }
+      catch (err) { $('#err').textContent = err.message.startsWith('This file') ? err.message : 'Could not read that file as JSON. Pick a replay written by scripts/record.py.'; $('#err').hidden = false; }
+    };
+    fr.readAsText(file);
+    e.target.value = '';
+  });
+
+  if (!window.THREE || !THREE.OrbitControls) {
+    $('#err').textContent = 'The 3D library did not load. Check your connection and reload the page.';
+    $('#err').hidden = false;
+    return;
+  }
+  if (SAMPLE) load(SAMPLE, 'Sample replay: hand-made controllers');
+  requestAnimationFrame(loop);
+})();
+</script>

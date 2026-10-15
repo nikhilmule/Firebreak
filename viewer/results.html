@@ -1,0 +1,327 @@
+<title>Firebreak Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: results board — headline numbers, then one chart per finding, full width or paired on wide screens */
+:root {
+  --bg: #F3F4F1; --surface: #FCFCFB; --ink: #0B0B0B; --ink-2: #52514E; --ink-3: #75736E; --line: #DEDDD8; --grid: #ECEBE7;
+  --accent: #2A78D6; --worse: #EB6834; --data: #A9A7A0; --data-2: #CFCDC6;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121211; --surface: #1A1A19; --ink: #F0EFEC; --ink-2: #C3C2B7; --ink-3: #9A998F; --line: #2E2E2B; --grid: #262624;
+  --accent: #3987E5; --worse: #D95926; --data: #6E6D68; --data-2: #484744; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121211; --surface: #1A1A19; --ink: #F0EFEC; --ink-2: #C3C2B7; --ink-3: #9A998F; --line: #2E2E2B; --grid: #262624;
+  --accent: #3987E5; --worse: #D95926; --data: #6E6D68; --data-2: #484744; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 48px; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 520px) { .wrap { padding-inline: 16px; } }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; }
+h1 { margin: 0; font: 700 36px/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.01em; text-wrap: balance; }
+.setup { margin: 6px 0 0; color: var(--ink-2); font-size: 13px; }
+.links { display: flex; gap: 8px; flex-wrap: wrap; }
+.links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 13px; }
+.links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.links a:hover { border-color: var(--ink-3); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .kpis { grid-template-columns: minmax(0, 1fr); } }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+.kpi b { font: 700 44px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.kpi b.acc { color: var(--accent); }
+.kpi span { color: var(--ink-2); font-size: 13px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 900px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 18px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.card h2 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+.card .sub { margin: 0; color: var(--ink-2); font-size: 12.5px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.legend i.dot { border-radius: 50%; }
+.legend i.dash { height: 0; border-top: 2px dashed var(--data); border-radius: 0; width: 16px; vertical-align: 3px; }
+.chart { width: 100%; overflow-x: auto; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--f-body); }
+.src { margin: 4px 0 0; color: var(--ink-3); font-size: 11.5px; }
+.multi { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 18px; }
+@media (max-width: 900px) { .multi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .multi { grid-template-columns: minmax(0, 1fr); } }
+.mini h3 { margin: 0 0 2px; font-size: 13px; font-weight: 600; }
+.mini p { margin: 0; font-size: 11.5px; color: var(--ink-3); }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: var(--ink); color: var(--surface); font: 12px/1.4 var(--f-body); padding: 6px 9px; border-radius: 6px; max-width: 260px; box-shadow: 0 2px 8px rgb(0 0 0 / 0.2); }
+.tip b { font-weight: 600; }
+.hit { cursor: default; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Firebreak Results</h1>
+      <p class="setup">6 drones against 18 spot fires · wind 8 m/s · about 310 homes per map · every method on the same 50 maps, reproduced on two machines</p>
+    </div>
+    <nav class="links" aria-label="Related pages">
+      <a class="primary" href="https://claude.ai/artifact/14K8DNtgbmLvusYGjmWcr7" target="_blank" rel="noopener">Watch the 3D replay</a>
+      <a href="https://claude.ai/artifact/T6KtXsNDxKuif3v32Kp2eQ" target="_blank" rel="noopener">Try the 2D lab</a>
+    </nav>
+  </header>
+
+  <section class="kpis" aria-label="Headline numbers">
+    <div class="kpi"><b class="acc">−35</b><span>fewer homes lost per run when drones can lay firebreaks (111.5 → 76.1)</span></div>
+    <div class="kpi"><b>3</b><span>homes separate greedy, GA, PSO and the trained GNN once firebreaks are allowed</span></div>
+    <div class="kpi"><b>55×</b><span>more compute per decision for GA and PSO than greedy, for the same result</span></div>
+  </section>
+
+  <section class="card">
+    <h2>What the drones can do matters more than which algorithm controls them</h2>
+    <p class="sub">Homes lost per run, mean of 50 maps. Lower is better.</p>
+    <div class="legend"><span><i style="background:var(--accent)"></i>With firebreaks</span><span><i style="background:var(--data)"></i>Attack only</span><span><i style="background:var(--data-2)"></i>No drones</span></div>
+    <div class="chart" id="c-methods"></div>
+    <p class="src">Source: evaluate.py, seeds 2000–2049. The GNN and greedy + firebreaks made the same decisions on every map.</p>
+  </section>
+
+  <section class="card">
+    <h2>Firebreaks saved homes on 42 of the 50 maps</h2>
+    <p class="sub">Each column is one map, sorted by losses without firebreaks. Grey dot: greedy, attack only. Blue dot: greedy + firebreaks.</p>
+    <div class="legend"><span><i class="dot" style="background:var(--data)"></i>Attack only</span><span><i class="dot" style="background:var(--accent)"></i>With firebreaks</span><span><i style="background:var(--accent);height:3px"></i>Fewer homes lost</span><span><i style="background:var(--worse);height:3px"></i>More homes lost</span></div>
+    <div class="chart" id="c-maps"></div>
+    <p class="src">Source: evaluate.py per-map results, greedy_c_stable vs greedy_break.</p>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Stronger wind erodes every controller's advantage</h2>
+      <p class="sub">Homes lost per run, mean of 20 maps per wind speed. Attack-only controllers.</p>
+      <div class="legend"><span><i class="dash"></i>No drones</span><span><i style="background:var(--data);height:3px"></i>Greedy</span><span><i style="background:var(--accent);height:3px"></i>GNN (RL)</span></div>
+      <div class="chart" id="c-wind"></div>
+      <p class="src">Source: wind_sweep.py, 20 maps × 6 wind speeds.</p>
+    </section>
+    <section class="card">
+      <h2>Greedy decides 55 times faster for the same result</h2>
+      <p class="sub">Milliseconds per decision, averaged over 50 runs (one decision every 3 s of fire).</p>
+      <div class="chart" id="c-cost"></div>
+      <p class="src">Source: evaluate.py ms/decision column, same run as the top chart.</p>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Under stress, greedy + firebreaks was never beaten</h2>
+    <p class="sub">Homes lost per run as one condition gets worse, starting from 6 drones, 18 fires and wind 8 m/s. 30 maps per point.</p>
+    <div class="legend"><span><i style="background:var(--accent);height:3px"></i>Greedy + firebreaks</span><span><i style="background:var(--accent);opacity:.18"></i>Range of GA and PSO + firebreaks</span><span><i style="background:var(--data);height:3px"></i>Greedy, attack only</span><span><i class="dash"></i>No drones</span></div>
+    <div class="multi" id="c-stress"></div>
+    <p class="src">Source: stress_test.py on a 16-core PC, 28 conditions × 6 controllers × 30 maps (5,040 runs). Greedy + firebreaks was clearly beaten in 0 of 28 conditions. Its weakest point is a 600 m sensing range.</p>
+  </section>
+
+  <section class="card">
+    <h2>Reinforcement learning closed the gap to the best rule, but never passed it</h2>
+    <p class="sub">Homes lost by the trained GNN and by the best hand-made controller of that stage, on maps not used for training.</p>
+    <div class="legend"><span><i class="dot" style="background:var(--accent)"></i>Trained GNN</span><span><i class="dot" style="background:var(--data)"></i>Best hand-made controller</span></div>
+    <div class="chart" id="c-rl"></div>
+    <p class="src">Run 1: 20 maps, mixed wind. Run 2: 50 maps at 7 m/s. Runs 3–4: 50 maps at 8 m/s.</p>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(() => {
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs, parent, text) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text !== undefined) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+  const tip = document.getElementById('tip');
+  function bindTip(node, html) {
+    node.classList.add('hit');
+    node.addEventListener('pointerenter', () => { tip.innerHTML = html; tip.hidden = false; });
+    node.addEventListener('pointermove', e => {
+      const w = tip.offsetWidth, x = Math.min(window.innerWidth - w - 8, e.clientX + 14);
+      tip.style.left = x + 'px'; tip.style.top = (e.clientY + 14) + 'px';
+    });
+    node.addEventListener('pointerleave', () => { tip.hidden = true; });
+  }
+  const svgIn = (id, w, h, label) => el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': label }, document.getElementById(id));
+  const txt = (p, x, y, s, o = {}) => el('text', Object.assign({ x, y, fill: 'var(--ink-2)', 'font-size': 12 }, o), p, s);
+
+  // ---------------------------------------------------------------- 1. methods
+  const methods = [
+    { g: 'With firebreaks', name: 'Greedy + firebreaks', v: 76.1, tone: 'acc', note: 'reference' },
+    { g: 'With firebreaks', name: 'GNN policy (RL)', v: 76.1, tone: 'acc', note: 'identical on all 50 maps' },
+    { g: 'With firebreaks', name: 'Particle swarm + firebreaks', v: 78.4, tone: 'acc', note: 'better on 23, worse on 26 maps' },
+    { g: 'With firebreaks', name: 'Genetic algorithm + firebreaks', v: 79.1, tone: 'acc', note: 'better on 24, worse on 26 maps' },
+    { g: 'With firebreaks', name: 'Nearest fire + firebreaks', v: 155.9, tone: 'acc', note: 'firebreaks in the wrong places' },
+    { g: 'Attack only', name: 'Genetic algorithm', v: 108.0, tone: 'data', note: 'clearly worse on 43 of 50 maps' },
+    { g: 'Attack only', name: 'Particle swarm', v: 109.8, tone: 'data', note: 'clearly worse on 40 of 50 maps' },
+    { g: 'Attack only', name: 'Greedy', v: 111.5, tone: 'data', note: 'clearly worse on 42 of 50 maps' },
+    { g: 'Attack only', name: 'Nearest fire', v: 154.3, tone: 'data', note: 'clearly worse on 48 of 50 maps' },
+    { g: 'No drones', name: 'No drones', v: 176.6, tone: 'data2', note: 'clearly worse on 49 of 50 maps' },
+  ];
+  (() => {
+    const W = 1100, L = 230, R = 70, rowH = 30, gap = 20, top = 8;
+    let y = top, groups = [];
+    methods.forEach((m, i) => { if (i === 0 || m.g !== methods[i - 1].g) { if (i) y += gap; groups.push({ g: m.g, y }); y += 20; } m.y = y; y += rowH; });
+    const H = y + 26, max = 180, x = v => L + v / max * (W - L - R);
+    const s = svgIn('c-methods', W, H, 'Homes lost by method, with and without firebreaks');
+    [0, 50, 100, 150].forEach(t => {
+      el('line', { x1: x(t), x2: x(t), y1: top, y2: H - 24, stroke: 'var(--grid)' }, s);
+      txt(s, x(t), H - 6, t, { 'text-anchor': 'middle', fill: 'var(--ink-3)' });
+    });
+    txt(s, W - R, H - 6, 'homes lost', { 'text-anchor': 'end', fill: 'var(--ink-3)' });
+    groups.forEach(g => txt(s, 0, g.y + 13, g.g.toUpperCase(), { 'font-size': 11, 'font-weight': 600, 'letter-spacing': '0.08em', fill: 'var(--ink-3)' }));
+    methods.forEach(m => {
+      const fill = m.tone === 'acc' ? 'var(--accent)' : m.tone === 'data' ? 'var(--data)' : 'var(--data-2)';
+      txt(s, L - 12, m.y + 15, m.name, { 'text-anchor': 'end', fill: 'var(--ink)', 'font-size': 13 });
+      const bw = x(m.v) - L;
+      el('path', { d: `M${L},${m.y + 3} h${bw - 4} a4,4 0 0 1 4,4 v${rowH - 14} a4,4 0 0 1 -4,4 h${-(bw - 4)} z`, fill }, s);
+      txt(s, x(m.v) + 8, m.y + 15, m.v.toFixed(1), { fill: 'var(--ink)', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 12.5 });
+      const hit = el('rect', { x: 0, y: m.y, width: W, height: rowH, fill: 'transparent' }, s);
+      bindTip(hit, `<b>${m.name}</b><br>${m.v.toFixed(1)} homes lost per run<br>${m.note}`);
+    });
+  })();
+
+  // ---------------------------------------------------------------- 2. per map
+  const A = [177,167,5,120,154,132,59,87,141,75,49,97,164,140,119,64,151,26,86,135,157,134,98,91,108,102,138,111,65,132,106,50,42,82,63,118,189,134,140,121,86,77,233,156,89,74,185,129,104,115];
+  const B = [116,117,56,100,44,70,31,14,49,54,80,76,140,165,44,25,159,39,76,98,102,60,65,36,82,115,68,52,105,58,98,14,26,30,22,79,111,75,89,74,50,67,164,74,54,54,131,63,128,108];
+  (() => {
+    const maps = A.map((a, i) => ({ seed: 2000 + i, a, b: B[i] })).sort((p, q) => q.a - p.a);
+    const W = 1100, L = 44, R = 10, top = 10, H = 300, bot = 32, max = 250;
+    const x = i => L + (i + 0.5) * (W - L - R) / maps.length, y = v => top + (1 - v / max) * (H - top - bot);
+    const s = svgIn('c-maps', W, H, 'Homes lost per map, attack only versus with firebreaks');
+    [0, 50, 100, 150, 200, 250].forEach(t => {
+      el('line', { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: 'var(--grid)' }, s);
+      txt(s, L - 8, y(t) + 4, t, { 'text-anchor': 'end', fill: 'var(--ink-3)' });
+    });
+    txt(s, L, H - 8, '← maps where attack-only greedy lost the most', { fill: 'var(--ink-3)' });
+    txt(s, W - R, H - 8, '50 maps', { 'text-anchor': 'end', fill: 'var(--ink-3)' });
+    maps.forEach((m, i) => {
+      const better = m.b < m.a;
+      el('line', { x1: x(i), x2: x(i), y1: y(m.a), y2: y(m.b), stroke: better ? 'var(--accent)' : 'var(--worse)', 'stroke-width': 2, 'stroke-opacity': 0.55 }, s);
+      el('circle', { cx: x(i), cy: y(m.a), r: 4.5, fill: 'var(--data)', stroke: 'var(--surface)', 'stroke-width': 1.5 }, s);
+      el('circle', { cx: x(i), cy: y(m.b), r: 4.5, fill: 'var(--accent)', stroke: 'var(--surface)', 'stroke-width': 1.5 }, s);
+      const hit = el('rect', { x: x(i) - 10, y: top, width: 20, height: H - top - bot, fill: 'transparent' }, s);
+      const d = m.a - m.b;
+      bindTip(hit, `<b>Map ${m.seed}</b><br>Attack only: ${m.a} homes lost<br>With firebreaks: ${m.b} homes lost<br>${d >= 0 ? d + ' fewer' : -d + ' more'} with firebreaks`);
+    });
+  })();
+
+  // ---------------------------------------------------------------- 3. wind
+  (() => {
+    const winds = [2, 4, 6, 8, 10, 12];
+    const series = [
+      { name: 'No drones', v: [95.5, 122.3, 143.1, 169.8, 177.5, 185.2], c: 'var(--data)', dash: '5 4' },
+      { name: 'Greedy', v: [23.3, 56.0, 72.3, 98.7, 115.0, 134.2], c: 'var(--data)' },
+      { name: 'GNN (RL)', v: [16.9, 56.2, 73.2, 107.0, 112.8, 134.5], c: 'var(--accent)' },
+    ];
+    const W = 540, L = 40, R = 86, top = 12, H = 300, bot = 34, max = 200;
+    const x = w => L + (w - 2) / 10 * (W - L - R), y = v => top + (1 - v / max) * (H - top - bot);
+    const s = svgIn('c-wind', W, H, 'Homes lost by wind speed for no drones, greedy and the GNN');
+    [0, 50, 100, 150, 200].forEach(t => {
+      el('line', { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: 'var(--grid)' }, s);
+      txt(s, L - 8, y(t) + 4, t, { 'text-anchor': 'end', fill: 'var(--ink-3)' });
+    });
+    winds.forEach(w => txt(s, x(w), H - 14, w, { 'text-anchor': 'middle', fill: 'var(--ink-3)' }));
+    txt(s, W - R + 8, H - 14, 'm/s wind', { fill: 'var(--ink-3)' });
+    series.forEach(se => {
+      el('path', { d: se.v.map((v, i) => (i ? 'L' : 'M') + x(winds[i]) + ',' + y(v)).join(''), fill: 'none', stroke: se.c, 'stroke-width': 2, 'stroke-dasharray': se.dash || 'none' }, s);
+      se.v.forEach((v, i) => el('circle', { cx: x(winds[i]), cy: y(v), r: 4, fill: se.c, stroke: 'var(--surface)', 'stroke-width': 1.5 }, s));
+    });
+    // end labels, nudged apart
+    const ends = series.map(se => ({ se, yy: y(se.v[5]) })).sort((a, b) => a.yy - b.yy);
+    for (let i = 1; i < ends.length; i++) if (ends[i].yy - ends[i - 1].yy < 15) ends[i].yy = ends[i - 1].yy + 15;
+    ends.forEach(e => txt(s, W - R + 8, e.yy + 4, e.se.name, { fill: 'var(--ink)', 'font-size': 12 }));
+    winds.forEach((w, i) => {
+      const hit = el('rect', { x: x(w) - 20, y: top, width: 40, height: H - top - bot, fill: 'transparent' }, s);
+      bindTip(hit, `<b>Wind ${w} m/s</b><br>` + series.map(se => `${se.name}: ${se.v[i]} homes lost`).join('<br>'));
+    });
+  })();
+
+  // ---------------------------------------------------------------- 4. cost
+  (() => {
+    const rows = [
+      { name: 'Greedy + firebreaks', v: 0.15, c: 'var(--accent)' },
+      { name: 'GNN policy (RL)', v: 3.31, c: 'var(--data)' },
+      { name: 'Genetic algorithm', v: 8.18, c: 'var(--data)' },
+      { name: 'Particle swarm', v: 8.30, c: 'var(--data)' },
+    ];
+    const W = 540, L = 150, R = 70, top = 14, rowH = 50, H = top + rows.length * rowH + 30, max = 9;
+    const x = v => L + v / max * (W - L - R);
+    const s = svgIn('c-cost', W, H, 'Milliseconds per decision by method');
+    [0, 3, 6, 9].forEach(t => {
+      el('line', { x1: x(t), x2: x(t), y1: top - 4, y2: H - 26, stroke: 'var(--grid)' }, s);
+      txt(s, x(t), H - 8, t + ' ms', { 'text-anchor': 'middle', fill: 'var(--ink-3)' });
+    });
+    rows.forEach((r, i) => {
+      const yy = top + i * rowH;
+      txt(s, L - 12, yy + 22, r.name, { 'text-anchor': 'end', fill: 'var(--ink)', 'font-size': 13 });
+      const bw = Math.max(4, x(r.v) - L);
+      el('path', { d: `M${L},${yy + 8} h${bw - 4} a4,4 0 0 1 4,4 v${rowH - 32} a4,4 0 0 1 -4,4 h${-(bw - 4)} z`, fill: r.c }, s);
+      txt(s, L + bw + 8, yy + 22, r.v.toFixed(2) + ' ms', { fill: 'var(--ink)', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 12.5 });
+      const hit = el('rect', { x: 0, y: yy, width: W, height: rowH, fill: 'transparent' }, s);
+      bindTip(hit, `<b>${r.name}</b><br>${r.v.toFixed(2)} ms per decision<br>${(r.v / 0.15).toFixed(0)}× greedy`);
+    });
+  })();
+
+  // ---------------------------------------------------------------- 5. RL journey
+  (() => {
+    const runs = [
+      { name: 'Run 1 · PPO only', ref: 101.3, gnn: 155.5, refName: 'Greedy, attack only' },
+      { name: 'Run 2 · copy greedy, then PPO', ref: 100.4, gnn: 102.3, refName: 'Greedy, attack only' },
+      { name: 'Run 3 · + firebreaks, GNN picks fires', ref: 66.2, gnn: 101.7, refName: 'Greedy + firebreaks' },
+      { name: 'Run 4 · greedy picks fires, GNN picks action', ref: 76.1, gnn: 76.1, refName: 'Greedy + firebreaks' },
+    ];
+    const W = 1100, L = 330, R = 60, top = 10, rowH = 44, H = top + runs.length * rowH + 30, max = 180;
+    const x = v => L + v / max * (W - L - R);
+    const s = svgIn('c-rl', W, H, 'Trained GNN versus best hand-made controller across four training runs');
+    [0, 50, 100, 150].forEach(t => {
+      el('line', { x1: x(t), x2: x(t), y1: top, y2: H - 26, stroke: 'var(--grid)' }, s);
+      txt(s, x(t), H - 8, t, { 'text-anchor': 'middle', fill: 'var(--ink-3)' });
+    });
+    txt(s, W - R, H - 8, 'homes lost', { 'text-anchor': 'end', fill: 'var(--ink-3)' });
+    runs.forEach((r, i) => {
+      const yy = top + i * rowH + rowH / 2;
+      txt(s, L - 16, yy + 4, r.name, { 'text-anchor': 'end', fill: 'var(--ink)', 'font-size': 13 });
+      el('line', { x1: x(Math.min(r.ref, r.gnn)), x2: x(Math.max(r.ref, r.gnn)), y1: yy, y2: yy, stroke: 'var(--data-2)', 'stroke-width': 3 }, s);
+      el('circle', { cx: x(r.ref), cy: yy, r: 6, fill: 'var(--data)', stroke: 'var(--surface)', 'stroke-width': 2 }, s);
+      el('circle', { cx: x(r.gnn), cy: yy, r: 6, fill: 'var(--accent)', stroke: 'var(--surface)', 'stroke-width': 2 }, s);
+      const gap = r.gnn - r.ref;
+      txt(s, x(Math.max(r.ref, r.gnn)) + 12, yy + 4, gap === 0 ? 'tie' : `+${gap.toFixed(1)}`, { fill: 'var(--ink-2)', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 12 });
+      const hit = el('rect', { x: 0, y: yy - rowH / 2, width: W, height: rowH, fill: 'transparent' }, s);
+      bindTip(hit, `<b>${r.name}</b><br>Trained GNN: ${r.gnn} homes lost<br>${r.refName}: ${r.ref}<br>${gap === 0 ? 'Same decisions on every map' : 'GNN lost ' + gap.toFixed(1) + ' more'}`);
+    });
+  })();
+  // ---------------------------------------------------------------- 6. stress small multiples
+  (() => {
+    const S = {"Fleet size": {"vals": [2.0, 4.0, 6.0, 9.0, 12.0], "data": {"greedy_break": [122.4, 99.3, 69.8, 49.1, 37.4], "ga_break": [126.0, 94.3, 76.2, 54.3, 45.4], "pso_break": [126.2, 93.7, 72.2, 50.5, 41.6], "nearest_break": [165.7, 156.7, 148.9, 143.8, 145.2], "greedy_c_stable": [155.8, 126.4, 109.9, 90.3, 79.5], "none": [180.5, 180.5, 180.5, 180.5, 180.5]}}, "Number of fires": {"vals": [6.0, 12.0, 18.0, 30.0, 40.0], "data": {"greedy_break": [74.8, 78.9, 69.8, 76.9, 74.6], "ga_break": [71.8, 74.1, 76.2, 69.1, 75.5], "pso_break": [71.3, 79.0, 72.2, 79.0, 74.5], "nearest_break": [153.3, 160.7, 148.9, 148.1, 141.3], "greedy_c_stable": [119.4, 113.1, 109.9, 104.5, 111.2], "none": [183.3, 181.5, 180.5, 179.1, 185.4]}}, "Wind speed": {"vals": [2.0, 5.0, 8.0, 11.0, 14.0], "data": {"greedy_break": [13.4, 41.2, 69.8, 95.4, 107.8], "ga_break": [14.6, 47.7, 76.2, 98.0, 109.1], "pso_break": [11.8, 54.5, 72.2, 94.5, 108.0], "nearest_break": [68.8, 134.8, 148.9, 158.8, 166.3], "greedy_c_stable": [21.0, 79.2, 109.9, 130.8, 158.7], "none": [87.9, 161.9, 180.5, 198.6, 205.6]}}, "Sensor noise": {"vals": [0.0, 0.25, 0.5, 1.0], "data": {"greedy_break": [69.8, 73.8, 86.2, 101.4], "ga_break": [76.2, 80.7, 83.1, 104.1], "pso_break": [72.2, 77.3, 82.1, 93.9], "nearest_break": [148.9, 148.9, 148.9, 148.9], "greedy_c_stable": [109.9, 110.0, 119.8, 133.3], "none": [180.5, 180.5, 180.5, 180.5]}}, "Missed fires": {"vals": [0.0, 0.15, 0.3, 0.5], "data": {"greedy_break": [69.8, 72.5, 74.3, 82.9], "ga_break": [76.2, 71.4, 81.3, 75.0], "pso_break": [72.2, 76.9, 80.4, 79.6], "nearest_break": [148.9, 144.0, 154.9, 155.7], "greedy_c_stable": [109.9, 113.7, 118.0, 123.9], "none": [180.5, 180.5, 180.5, 180.5]}}, "Drone failures": {"vals": [0.0, 2.0, 4.0, 8.0], "data": {"greedy_break": [69.8, 74.7, 79.7, 86.3], "ga_break": [76.2, 79.4, 87.6, 97.4], "pso_break": [72.2, 80.6, 89.0, 101.6], "nearest_break": [148.9, 150.9, 153.7, 155.9], "greedy_c_stable": [109.9, 117.7, 122.7, 134.9], "none": [180.5, 180.5, 180.5, 180.5]}}, "Sensing range": {"vals": [0.0, 2000.0, 1000.0, 600.0], "data": {"greedy_break": [69.8, 79.9, 88.8, 118.1], "ga_break": [76.2, 76.6, 87.0, 121.8], "pso_break": [72.2, 77.0, 86.9, 118.0], "nearest_break": [148.9, 141.9, 134.9, 156.1], "greedy_c_stable": [109.9, 111.8, 128.0, 133.2], "none": [180.5, 180.5, 180.5, 180.5]}}, "Wind shift at 10 min": {"vals": [0.0, 45.0, 90.0, 150.0], "data": {"greedy_break": [69.8, 70.7, 72.2, 74.3], "ga_break": [76.2, 77.3, 77.0, 78.6], "pso_break": [72.2, 72.5, 73.9, 74.0], "nearest_break": [148.9, 149.7, 151.2, 158.4], "greedy_c_stable": [109.9, 109.9, 110.1, 111.3], "none": [180.5, 181.2, 186.0, 191.8]}}};
+    const units = { 'Fleet size': 'drones', 'Number of fires': 'starting fires', 'Wind speed': 'm/s', 'Sensor noise': 'sd of sensing error',
+      'Missed fires': 'share of fires unseen', 'Drone failures': 'failures per drone-hour', 'Sensing range': 'metres (0 = whole map)', 'Wind shift at 10 min': 'degrees' };
+    const host = document.getElementById('c-stress');
+    Object.entries(S).forEach(([title, ax]) => {
+      const box = document.createElement('div'); box.className = 'mini';
+      box.innerHTML = `<h3>${title}</h3><p>${units[title]}</p>`;
+      host.appendChild(box);
+      const W = 300, H = 200, L = 34, R = 8, top = 10, bot = 26, n = ax.vals.length, max = 220;
+      const x = i => L + i * (W - L - R) / (n - 1), y = v => top + (1 - v / max) * (H - top - bot);
+      const s = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': title + ': homes lost by controller' }, box);
+      [0, 100, 200].forEach(t => { el('line', { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: 'var(--grid)' }, s); txt(s, L - 6, y(t) + 4, t, { 'text-anchor': 'end', fill: 'var(--ink-3)', 'font-size': 11 }); });
+      ax.vals.forEach((v, i) => txt(s, x(i), H - 8, v === 0 && title === 'Sensing range' ? 'all' : v, { 'text-anchor': 'middle', fill: 'var(--ink-3)', 'font-size': 11 }));
+      const D = ax.data, lo = ax.vals.map((_, i) => Math.min(D.ga_break[i], D.pso_break[i])), hi = ax.vals.map((_, i) => Math.max(D.ga_break[i], D.pso_break[i]));
+      el('path', { d: hi.map((v, i) => (i ? 'L' : 'M') + x(i) + ',' + y(v)).join('') + lo.slice().reverse().map((v, j) => 'L' + x(n - 1 - j) + ',' + y(v)).join('') + 'Z', fill: 'var(--accent)', 'fill-opacity': 0.16 }, s);
+      const line = (vals, c, w, dash) => el('path', { d: vals.map((v, i) => (i ? 'L' : 'M') + x(i) + ',' + y(v)).join(''), fill: 'none', stroke: c, 'stroke-width': w, 'stroke-dasharray': dash || 'none' }, s);
+      line(D.none, 'var(--data)', 1.5, '4 3');
+      line(D.greedy_c_stable, 'var(--data)', 2);
+      line(D.greedy_break, 'var(--accent)', 2.5);
+      D.greedy_break.forEach((v, i) => el('circle', { cx: x(i), cy: y(v), r: 3.5, fill: 'var(--accent)', stroke: 'var(--surface)', 'stroke-width': 1.5 }, s));
+      ax.vals.forEach((v, i) => {
+        const hit = el('rect', { x: x(i) - 18, y: top, width: 36, height: H - top - bot, fill: 'transparent' }, s);
+        bindTip(hit, `<b>${title}: ${v === 0 && title === 'Sensing range' ? 'whole map' : v}</b><br>Greedy + firebreaks: ${D.greedy_break[i]}<br>GA + firebreaks: ${D.ga_break[i]}<br>PSO + firebreaks: ${D.pso_break[i]}<br>Greedy, attack only: ${D.greedy_c_stable[i]}<br>Nearest + firebreaks: ${D.nearest_break[i]}<br>No drones: ${D.none[i]}`);
+      });
+    });
+  })();
+})();
+</script>
