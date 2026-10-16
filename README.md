@@ -60,16 +60,17 @@ Same drones, maps and scoring, but fire spread from [MITRE SimFire](https://gith
 | Nearest fire + firebreaks | 165.2 | +90.1, clearly worse |
 | No drones | 212.0 | +136.8, clearly worse |
 
-Same conclusion under different physics: firebreaks save about 53 homes (95% CI 43.5 to 61.9), and
+Same conclusion under different physics: firebreaks save about 53 homes compared with water-only greedy on the same maps (95% CI 43.5 to 61.9), and
 the planners tie.
 
 ### Recommendation
 
 `greedy_break` (greedy on expected value saved + the firebreak rule) is the controller to rely on. It
 was never clearly beaten in either fire model or any stress condition, it is deterministic and
-explainable, and it decides in about 0.2 ms. Its objective is monotone submodular, so greedy is within
-(1 − 1/e) of the best assignment at every decision. In any real use, a human incident commander stays
-in charge.
+explainable, and it decides in about 0.2 ms. Its objective is monotone submodular and each drone takes
+one sector (a partition matroid), so greedy is guaranteed at least half of the best possible value at
+every decision (Fisher, Nemhauser and Wolsey, 1978); in practice GA and PSO, which search far larger
+plan spaces, found nothing better. In any real use, a human incident commander stays in charge.
 
 ---
 
